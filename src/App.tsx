@@ -3,7 +3,6 @@ import {
   MessageCircle,
   Users,
   Book,
-  Headphones,
   Church,
   Crown,
   CheckCircle2,
@@ -14,14 +13,6 @@ import {
   Globe,
   Heart
 } from 'lucide-react';
-
-const challenges = [
-  "Who can explain what \"doulos\" really meant in ancient Greek culture?",
-  "How do we trace the deep connections between Old Testament prophecies and their New Testament fulfillment?",
-  "What were the social dynamics of 1st century Palestine that give context to Jesus' parables?",
-  "Where can we find unbiased, scholarly insights without years of seminary education?",
-  "How can small communities access high-quality Bible study leadership?"
-];
 
 const features = [
   {
@@ -117,88 +108,112 @@ const tiers = [
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
-          <div className="relative z-10">
-            <Bot className="w-16 h-16 mx-auto mb-8 text-blue-600" />
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
-              Unlocking Biblical Scholarship for Everyone
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              The Bible is more accessible than ever - yet truly understanding Scripture remains locked behind significant barriers. Until now.
-            </p>
-            <div className="flex gap-4 justify-center">
-              <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                Add to Discord
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors">
-                Join Support Server
-              </button>
-            </div>
+    <div className="min-h-screen bg-dark text-gray-400">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm border-b border-dark-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-white">
+            <Bot className="w-6 h-6" />
+            <span className="font-bold">PastorBot</span>
           </div>
+          <button className="button-gradient text-white px-4 py-2 rounded-lg text-sm font-semibold">
+            Contact Us
+          </button>
         </div>
-      </div>
+      </nav>
 
-      {/* The Challenge Section */}
-      <div className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">The Modern Bible Study Challenge</h2>
-          </div>
-          <div className="grid gap-6 max-w-3xl mx-auto">
-            {challenges.map((challenge, index) => (
-              <div key={index} className="bg-blue-50 p-6 rounded-lg">
-                <p className="text-gray-800 text-lg">{challenge}</p>
+      {/* Hero Section */}
+      <div className="relative pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <Bot className="w-5 h-5 text-primary-500" />
+                <span className="text-sm font-semibold text-primary-500">Biblical Understanding</span>
+                <span className="text-xs px-2 py-1 rounded-full bg-primary-500/10 text-primary-500">AI-Powered</span>
               </div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              These knowledge bottlenecks have limited our ability to fully grasp God's word. But what if we could remove these barriers completely?
-            </p>
+              <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
+                Unlocking Biblical Scholarship
+                <br />
+                <span className="gradient-text">for Everyone</span>
+              </h1>
+              <p className="text-xl mb-8 leading-relaxed">
+                The Bible is more accessible than ever - yet truly understanding Scripture remains locked behind significant barriers. Until now.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="button-gradient text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:shadow-glow">
+                  Add to Discord
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+                <button className="bg-dark-card text-white border border-dark-border px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
+                  Join Support Server
+                </button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-dark-card border border-dark-border rounded-lg p-4">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <span className="text-sm text-gray-500">Biblical Insights in Seconds</span>
+                </div>
+                <div className="font-mono text-sm space-y-2">
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <span className="text-primary-500">$</span>
+                    pastor explain doulos in Greek culture
+                  </div>
+                  <div className="pl-4 text-gray-500">Analyzing historical and cultural context...</div>
+                  <div className="pl-4 text-gray-300">The term "doulos" in ancient Greek society...</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Features Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Your Gateway to Biblical Scholarship</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-blue-600 mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </div>
-          ))}
+      <div className="py-16 gradient-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">Your Gateway to Biblical Scholarship</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="feature-gradient p-8 rounded-xl">
+                <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Impact Section */}
-      <div className="bg-blue-50 py-20">
+      <div className="py-16 gradient-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">The Vision: A Biblical Knowledge Revolution</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">The Vision: A Biblical Knowledge Revolution</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               By removing the bottleneck between people and biblical scholarship, we're enabling explosive growth in:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {impacts.map((impact, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl text-center">
-                <div className="text-blue-600 mx-auto mb-4 w-12 h-12 flex items-center justify-center bg-blue-50 rounded-full">
+              <div key={index} className="gradient-card p-8 rounded-xl text-center">
+                <div className="text-primary-500 mx-auto mb-4 w-12 h-12 flex items-center justify-center bg-dark-card rounded-xl">
                   {impact.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{impact.title}</h3>
-                <p className="text-gray-600">{impact.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-2">{impact.title}</h3>
+                <p className="text-gray-400">{impact.description}</p>
               </div>
             ))}
           </div>
@@ -206,28 +221,31 @@ function App() {
       </div>
 
       {/* Pricing Section */}
-      <div className="bg-white py-20">
+      <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Transform Your Community?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-2 rounded-full bg-primary-500/10 text-primary-500 font-semibold text-sm mb-4">
+              Pricing
+            </div>
+            <h2 className="text-4xl font-bold text-white mb-4">Ready to Transform Your Community?</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Whether you're starting a new digital ministry or enhancing an existing one, PastorBot provides the theological depth and accessibility your community deserves.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {tiers.map((tier, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{tier.name}</h3>
-                <p className="text-3xl font-bold text-blue-600 mb-6">{tier.price}</p>
+              <div key={index} className="gradient-card rounded-xl p-8">
+                <h3 className="text-2xl font-bold text-white mb-4">{tier.name}</h3>
+                <p className="text-4xl font-bold text-primary-500 mb-8">{tier.price}</p>
                 <ul className="space-y-4 mb-8">
                   {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-green-500" />
-                      <span className="text-gray-600">{feature}</span>
+                    <li key={featureIndex} className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0" />
+                      <span className="text-gray-400">{feature}</span>
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                <button className="w-full button-gradient text-white px-6 py-3 rounded-lg font-semibold hover:shadow-glow">
                   Get Started
                 </button>
               </div>
@@ -237,10 +255,10 @@ function App() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-50 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600">
-          <p className="mb-4">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
-          <p>© 2024 PastorBot. All rights reserved.</p>
+      <footer className="py-12 border-t border-dark-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="mb-4 text-lg text-gray-400">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
+          <p className="text-sm text-gray-500">© 2024 PastorBot. All rights reserved.</p>
         </div>
       </footer>
     </div>
