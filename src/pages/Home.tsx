@@ -80,14 +80,37 @@ const DiscordModal: React.FC<DiscordModalProps> = ({ isOpen, onClose, onSubmit, 
   );
 };
 
-// Your existing features, impacts, and tiers arrays here...
 const features = [
   {
     icon: <MessageCircle className="w-6 h-6" />,
     title: "Private Thread Conversations",
     description: "Create personal study spaces, explore Greek and Hebrew word meanings, and engage in deep scriptural exploration with context-aware AI."
   },
-  // ... rest of your features
+  {
+    icon: <Users className="w-6 h-6" />,
+    title: "Public Channel Engagement",
+    description: "Start any message with \"Pastor\" for instant scholarly insight and foster group discussion around biblical themes."
+  },
+  {
+    icon: <Crown className="w-6 h-6" />,
+    title: "Multiple Theological Perspectives",
+    description: "Choose from major denominational viewpoints, historical giants like Aquinas and C.S. Lewis, or critical scholarship perspectives."
+  },
+  {
+    icon: <Book className="w-6 h-6" />,
+    title: "Daily Bread Studies",
+    description: "Journey through Jesus' teachings with rich historical context, scholarly exegesis, and professional audio versions."
+  },
+  {
+    icon: <Church className="w-6 h-6" />,
+    title: "AI-Powered Bible Studies",
+    description: "Transform your community with voice-enabled teaching, comprehensive scripture analysis, and interactive group discussions."
+  },
+  {
+    icon: <Globe className="w-6 h-6" />,
+    title: "Digital Church Formation",
+    description: "Build meaningful relationships and transform lives by creating spaces for genuine spiritual discussion and community growth."
+  }
 ];
 
 const impacts = [
@@ -96,7 +119,21 @@ const impacts = [
     title: "Deep Biblical Understanding",
     description: "Access seminary-level insights and scholarly perspectives"
   },
-  // ... rest of your impacts
+  {
+    icon: <Users className="w-6 h-6" />,
+    title: "Community Formation",
+    description: "Build stronger spiritual bonds through shared learning"
+  },
+  {
+    icon: <Heart className="w-6 h-6" />,
+    title: "Life Transformation",
+    description: "Experience personal growth through Jesus' teachings"
+  },
+  {
+    icon: <ScrollText className="w-6 h-6" />,
+    title: "Accessible Education",
+    description: "Learn at your own pace with expert guidance"
+  }
 ];
 
 const tiers = [
@@ -166,8 +203,121 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-dark text-gray-400">
-      {/* Your existing JSX structure */}
-      {/* Update the pricing section to include the new handleGetStarted function */}
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm border-b border-dark-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-white">
+            <Bot className="w-6 h-6" />
+            <span className="font-bold">PastorBot</span>
+          </div>
+          <button className="button-gradient text-white px-4 py-2 rounded-lg text-sm font-semibold">
+            Contact Us
+          </button>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <div className="relative pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <Bot className="w-5 h-5 text-primary-500" />
+                <span className="text-sm font-semibold text-primary-500">Biblical Understanding</span>
+                <span className="text-xs px-2 py-1 rounded-full bg-primary-500/10 text-primary-500">AI-Powered</span>
+              </div>
+              <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
+                Unlocking Biblical Scholarship
+                <br />
+                <span className="gradient-text">for Everyone</span>
+              </h1>
+              <p className="text-xl mb-8 leading-relaxed">
+                The Bible is more accessible than ever - yet truly understanding Scripture remains locked behind significant barriers. Until now.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => handleGetStarted({ name: "Community", priceId: PRICE_IDS.COMMUNITY })}
+                  className="button-gradient text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:shadow-glow"
+                >
+                  Add to Discord
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+                <button className="bg-dark-card text-white border border-dark-border px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
+                  Join Support Server
+                </button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-dark-card border border-dark-border rounded-lg p-4">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <span className="text-sm text-gray-500">Biblical Insights in Seconds</span>
+                </div>
+                <div className="font-mono text-sm space-y-2">
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <span className="text-primary-500">$</span>
+                    pastor explain doulos in Greek culture
+                  </div>
+                  <div className="pl-4 text-gray-500">Analyzing historical and cultural context...</div>
+                  <div className="pl-4 text-gray-300">The term "doulos" in ancient Greek society...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Features Grid */}
+      <div className="py-16 gradient-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">Your Gateway to Biblical Scholarship</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="feature-gradient p-8 rounded-xl">
+                <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Impact Section */}
+      <div className="py-16 gradient-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">The Vision: A Biblical Knowledge Revolution</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              By removing the bottleneck between people and biblical scholarship, we're enabling explosive growth in:
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {impacts.map((impact, index) => (
+              <div key={index} className="gradient-card p-8 rounded-xl text-center">
+                <div className="text-primary-500 mx-auto mb-4 w-12 h-12 flex items-center justify-center bg-dark-card rounded-xl">
+                  {impact.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{impact.title}</h3>
+                <p className="text-gray-400">{impact.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Pricing Section */}
       <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -203,6 +353,14 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-dark-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="mb-4 text-lg text-gray-400">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
+          <p className="text-sm text-gray-500">© 2024 PastorBot. All rights reserved.</p>
+        </div>
+      </footer>
 
       {/* Discord ID Modal */}
       <DiscordModal
