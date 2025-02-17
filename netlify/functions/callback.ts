@@ -1,6 +1,6 @@
 import { Handler } from '@netlify/functions';
 
-const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
+const CLIENT_ID = process.env.VITE_DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
 const REDIRECT_URI = 'https://pastorbot.app/oauth/discord/callback';
 
@@ -9,7 +9,8 @@ export const handler: Handler = async (event) => {
   console.log('Environment check:', {
     hasClientId: !!CLIENT_ID,
     hasClientSecret: !!CLIENT_SECRET,
-    redirectUri: REDIRECT_URI
+    redirectUri: REDIRECT_URI,
+    clientId: CLIENT_ID
   });
 
   const code = event.queryStringParameters?.code;
