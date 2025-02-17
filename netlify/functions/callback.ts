@@ -2,10 +2,11 @@ import { Handler } from '@netlify/functions';
 
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
-const REDIRECT_URI = process.env.URL ? `${process.env.URL}/oauth/discord/callback` : 'http://localhost:8888/oauth/discord/callback';
+const REDIRECT_URI = 'https://pastorbot.app/oauth/discord/callback';
 
 export const handler: Handler = async (event) => {
   const code = event.queryStringParameters?.code;
+  const state = event.queryStringParameters?.state;
   const isBot = event.queryStringParameters?.isBot === 'true';
 
   if (!code) {
@@ -66,11 +67,11 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    // For user auth, redirect to pricing page with Discord ID
+    // For user auth, redirect to pricing page with Discord ID and state
     return {
       statusCode: 302,
       headers: {
-        Location: `/?discord_id=${userData.id}`,
+        Location: `/?discord_id=${userData.id}&${state}`,
       },
       body: JSON.stringify({ message: 'User authentication successful' })
     };

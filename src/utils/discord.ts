@@ -13,8 +13,9 @@ export function getBotAuthUrl() {
 }
 
 export function getUserAuthUrl() {
-  const redirectUri = `${window.location.origin}/oauth/discord/callback`;
-  return `https://discord.com/api/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${USER_SCOPES}`;
+  // Use the same redirect URI that's configured in Discord Developer Portal
+  const redirectUri = 'https://pastorbot.app/oauth/discord/callback';
+  return `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${USER_SCOPES}`;
 }
 
 export function redirectToDiscordAuth(isBot = false) {
