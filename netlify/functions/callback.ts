@@ -6,6 +6,7 @@ const REDIRECT_URI = process.env.URL ? `${process.env.URL}/oauth/discord/callbac
 
 export const handler: Handler = async (event) => {
   const code = event.queryStringParameters?.code;
+  const isBot = event.queryStringParameters?.isBot === 'true';
 
   if (!code) {
     return {
@@ -54,12 +55,24 @@ export const handler: Handler = async (event) => {
     const userData = await userResponse.json();
     console.log('User data received:', userData);
 
+    // If this was a bot installation, redirect to success
+    if (isBot) {
+      return {
+        statusCode: 302,
+        headers: {
+          Location: '/success?discord=true',
+        },
+        body: JSON.stringify({ message: 'Bot installation successful' })
+      };
+    }
+
+    // For user auth, redirect to pricing page with Discord ID
     return {
       statusCode: 302,
       headers: {
-        Location: '/success?discord=true',
+        Location: `/?discord_id=${userData.id}`,
       },
-      body: JSON.stringify({ message: 'OAuth successful' })
+      body: JSON.stringify({ message: 'User authentication successful' })
     };
   } catch (error) {
     console.error('OAuth error:', error);

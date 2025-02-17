@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { redirectToCheckout } from '../utils/stripe';
-import { redirectToDiscordAuth } from '../utils/discord';
+import { redirectToDiscordAuth, getUserAuthUrl } from '../utils/discord';
+import { useSearchParams } from 'react-router-dom';
 import {
   MessageCircle,
   Users,
@@ -178,26 +179,31 @@ const tiers = [
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedTier, setSelectedTier] = useState<{ name: string; priceId: string } | null>(null);
+  const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    // Check for Discord ID in URL after OAuth
+    const discordId = searchParams.get('discord_id');
+    const selectedTierName = searchParams.get('tier');
+
+    if (discordId && selectedTierName) {
+      const tier = tiers.find(t => t.name === selectedTierName);
+      if (tier) {
+        redirectToCheckout(tier.priceId, discordId);
+      }
+    }
+  }, [searchParams]);
 
   const handleGetStarted = (tier: { name: string; priceId: string }) => {
     if (tier.priceId === PRICE_IDS.COMMUNITY) {
-      // For free tier, redirect directly to Discord OAuth
-      redirectToDiscordAuth();
+      // For free tier, redirect directly to bot installation
+      redirectToDiscordAuth(true);
     } else {
-      // For paid tiers, show Discord ID modal first
-      setSelectedTier(tier);
-      setModalOpen(true);
-    }
-  };
-
-  const handleDiscordSubmit = async (discordId: string) => {
-    if (!selectedTier) return;
-
-    try {
-      await redirectToCheckout(selectedTier.priceId, discordId);
-    } catch (error) {
-      console.error('Checkout error:', error);
-      // Handle error (show error message to user)
+      // For paid tiers, start with Discord user auth
+      // Store selected tier in URL params
+      const params = new URLSearchParams();
+      params.set('tier', tier.name);
+      window.location.href = `${getUserAuthUrl()}&state=${params.toString()}`;
     }
   };
 
@@ -366,14 +372,6 @@ export default function Home() {
           <p className="text-sm text-gray-500">© 2024 PastorBot. All rights reserved.</p>
         </div>
       </footer>
-
-      {/* Discord ID Modal */}
-      <DiscordModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        onSubmit={handleDiscordSubmit}
-        tierName={selectedTier?.name || ''}
-      />
     </div>
   );
 }
