@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { redirectToCheckout } from '../utils/stripe';
+import { redirectToDiscordAuth } from '../utils/discord';
 import {
   MessageCircle,
   Users,
@@ -142,8 +143,14 @@ export default function Home() {
   const [selectedTier, setSelectedTier] = useState<{ name: string; priceId: string } | null>(null);
 
   const handleGetStarted = (tier: { name: string; priceId: string }) => {
-    setSelectedTier(tier);
-    setModalOpen(true);
+    if (tier.priceId === PRICE_IDS.COMMUNITY) {
+      // For free tier, redirect directly to Discord OAuth
+      redirectToDiscordAuth();
+    } else {
+      // For paid tiers, show Discord ID modal first
+      setSelectedTier(tier);
+      setModalOpen(true);
+    }
   };
 
   const handleDiscordSubmit = async (discordId: string) => {
