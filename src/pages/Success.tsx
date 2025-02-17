@@ -9,14 +9,14 @@ export default function Success() {
 
   useEffect(() => {
     const sessionId = searchParams.get('session_id');
-    const code = searchParams.get('code');
+    const isDiscord = searchParams.get('discord') === 'true';
 
-    if (code) {
-      // Discord OAuth success
-      setMessage('Bot added successfully! You can now close this window and start using PastorBot in your server.');
+    if (isDiscord) {
+      setMessage('PastorBot has been successfully added to your server! You can now close this window.');
+      // Optional: redirect back to home after a delay
+      setTimeout(() => navigate('/'), 5000);
     } else if (sessionId) {
-      // Stripe checkout success
-      setMessage('Thank you for your subscription! Please proceed to add PastorBot to your Discord server.');
+      setMessage('Thank you for your subscription! Please proceed to add PastorBot to your server.');
       // After showing the message for a few seconds, redirect to Discord OAuth
       const timer = setTimeout(() => {
         redirectToDiscordAuth();
