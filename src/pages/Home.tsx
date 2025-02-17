@@ -236,7 +236,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
-                  onClick={() => handleGetStarted({ name: "Community", priceId: PRICE_IDS.COMMUNITY })}
+                  onClick={() => redirectToDiscordAuth()}
                   className="button-gradient text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:shadow-glow"
                 >
                   Add to Discord
