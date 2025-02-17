@@ -5,9 +5,18 @@ const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
 const REDIRECT_URI = 'https://pastorbot.app/oauth/discord/callback';
 
 export const handler: Handler = async (event) => {
+  console.log('Callback handler started');
+  console.log('Environment check:', {
+    hasClientId: !!CLIENT_ID,
+    hasClientSecret: !!CLIENT_SECRET,
+    redirectUri: REDIRECT_URI
+  });
+
   const code = event.queryStringParameters?.code;
   const state = event.queryStringParameters?.state;
   const isBot = event.queryStringParameters?.isBot === 'true';
+
+  console.log('Query parameters:', { code: !!code, state, isBot });
 
   if (!code) {
     return {
@@ -17,6 +26,7 @@ export const handler: Handler = async (event) => {
   }
 
   try {
+    console.log('Attempting to exchange code for token...');
     // Exchange code for access token
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
@@ -35,12 +45,15 @@ export const handler: Handler = async (event) => {
     if (!tokenResponse.ok) {
       const errorData = await tokenResponse.text();
       console.error('Token response error:', errorData);
-      throw new Error('Failed to get access token');
+      console.error('Token response status:', tokenResponse.status);
+      throw new Error(`Failed to get access token: ${errorData}`);
     }
 
     const tokenData = await tokenResponse.json();
+    console.log('Token exchange successful');
 
     // Get user info
+    console.log('Fetching user info...');
     const userResponse = await fetch('https://discord.com/api/users/@me', {
       headers: {
         Authorization: `Bearer ${tokenData.access_token}`,
@@ -50,7 +63,8 @@ export const handler: Handler = async (event) => {
     if (!userResponse.ok) {
       const errorData = await userResponse.text();
       console.error('User info error:', errorData);
-      throw new Error('Failed to get user info');
+      console.error('User info status:', userResponse.status);
+      throw new Error(`Failed to get user info: ${errorData}`);
     }
 
     const userData = await userResponse.json();
@@ -76,13 +90,13 @@ export const handler: Handler = async (event) => {
       body: JSON.stringify({ message: 'User authentication successful' })
     };
   } catch (error) {
-    console.error('OAuth error:', error);
+    console.error('Detailed OAuth error:', error);
     return {
       statusCode: 302,
       headers: {
-        Location: '/cancel?error=oauth_failed',
+        Location: '/cancel?error=oauth_failed&reason=' + encodeURIComponent(error.message),
       },
-      body: JSON.stringify({ error: 'OAuth failed' })
+      body: JSON.stringify({ error: 'OAuth failed', details: error.message })
     };
   }
 };
