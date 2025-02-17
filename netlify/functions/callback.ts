@@ -10,7 +10,9 @@ export const handler: Handler = async (event) => {
     hasClientId: !!CLIENT_ID,
     hasClientSecret: !!CLIENT_SECRET,
     redirectUri: REDIRECT_URI,
-    clientId: CLIENT_ID
+    clientId: CLIENT_ID,
+    // Log first few chars of secret to verify it's correct without exposing full value
+    clientSecretPrefix: CLIENT_SECRET ? CLIENT_SECRET.substring(0, 4) + '...' : 'not set'
   });
 
   const code = event.queryStringParameters?.code;
@@ -28,19 +30,28 @@ export const handler: Handler = async (event) => {
 
   try {
     console.log('Attempting to exchange code for token...');
+    const params = new URLSearchParams({
+      client_id: CLIENT_ID!,
+      client_secret: CLIENT_SECRET!,
+      grant_type: 'authorization_code',
+      code,
+      redirect_uri: REDIRECT_URI,
+    });
+
+    console.log('Token request parameters:', {
+      url: 'https://discord.com/api/oauth2/token',
+      clientIdUsed: CLIENT_ID,
+      grantType: 'authorization_code',
+      redirectUri: REDIRECT_URI
+    });
+
     // Exchange code for access token
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: new URLSearchParams({
-        client_id: CLIENT_ID!,
-        client_secret: CLIENT_SECRET!,
-        grant_type: 'authorization_code',
-        code,
-        redirect_uri: REDIRECT_URI,
-      }),
+      body: params
     });
 
     if (!tokenResponse.ok) {
