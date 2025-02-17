@@ -216,8 +216,10 @@ export default function Home() {
             <Bot className="w-6 h-6" />
             <span className="font-bold">PastorBot</span>
           </div>
-          <button className="button-gradient text-white px-4 py-2 rounded-lg text-sm font-semibold">
-            Contact Us
+          <button
+            onClick={() => redirectToDiscordAuth(true)}
+            className="button-gradient text-white px-4 py-2 rounded-lg text-sm font-semibold">
+            Add to Server
           </button>
         </div>
       </nav>
