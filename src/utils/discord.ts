@@ -1,5 +1,5 @@
 // Discord OAuth configuration
-const DISCORD_CLIENT_ID = import.meta.env.DISCORD_CLIENT_ID;
+const DISCORD_CLIENT_ID = import.meta.env.VITE_DISCORD;
 const REQUIRED_PERMISSIONS = '395137251392'; // Adjust this based on your bot's needs
 const SCOPES = 'bot applications.commands';
 
