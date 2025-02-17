@@ -242,9 +242,14 @@ export default function Home() {
                   Add to Discord
                   <ArrowRight className="w-5 h-5" />
                 </button>
-                <button className="bg-dark-card text-white border border-dark-border px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center">
+                <a
+                  href="https://discord.gg/dkJ6Y9Xjs8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-dark-card text-white border border-dark-border px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center"
+                >
                   Join Support Server
-                </button>
+                </a>
               </div>
             </div>
             <div className="relative">
