@@ -1,8 +1,17 @@
 import { Handler } from '@netlify/functions';
+import Stripe from 'stripe';
 
 const CLIENT_ID = process.env.DISCORD_CLIENT_ID;
 const CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET;
 const REDIRECT_URI = 'https://pastorbot.app/oauth/discord/callback';
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2025-01-27.acacia' });
+
+// Price ID mapping
+const PRICE_IDS = {
+  'Community': 'price_1QtWxCLK64haKytl1k9Etklp',
+  'Discipleship': 'price_1QtWxaLK64haKytlqnojtTEH',
+  'Ministry': 'price_1QtWxzLK64haKytlUKcIi2C0'
+};
 
 export const handler: Handler = async (event) => {
   console.log('Callback handler started');
@@ -11,6 +20,7 @@ export const handler: Handler = async (event) => {
     hasClientSecret: !!CLIENT_SECRET,
     redirectUri: REDIRECT_URI,
     clientId: CLIENT_ID,
+    hasStripeKey: !!process.env.STRIPE_SECRET_KEY,
     // Log first few chars of secret to verify it's correct without exposing full value
     clientSecretPrefix: CLIENT_SECRET ? CLIENT_SECRET.substring(0, 4) + '...' : 'not set'
   });
@@ -93,13 +103,40 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    // For user auth, redirect to pricing page with Discord ID and state
+    // Parse state to get selected tier
+    const stateParams = new URLSearchParams(state || '');
+    const selectedTier = stateParams.get('tier');
+    const priceId = selectedTier ? PRICE_IDS[selectedTier as keyof typeof PRICE_IDS] : null;
+
+    if (!priceId) {
+      throw new Error('Invalid tier selected');
+    }
+
+    // Create Stripe checkout session
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
+      mode: 'subscription',
+      allow_promotion_codes: true,
+      success_url: `${process.env.URL || 'https://pastorbot.app'}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.URL || 'https://pastorbot.app'}/cancel`,
+      metadata: {
+        discord_id: userData.id
+      }
+    });
+
+    // Redirect directly to Stripe checkout
     return {
       statusCode: 302,
       headers: {
-        Location: `/?discord_id=${userData.id}&${state}`,
+        Location: session.url || '/cancel?error=no_checkout_url',
       },
-      body: JSON.stringify({ message: 'User authentication successful' })
+      body: JSON.stringify({ message: 'Redirecting to checkout' })
     };
   } catch (error) {
     console.error('Detailed OAuth error:', error);
