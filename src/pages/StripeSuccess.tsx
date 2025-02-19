@@ -15,7 +15,7 @@ export default function StripeSuccess() {
     }
 
     const timer = setTimeout(() => {
-      redirectToDiscordAuth();
+      redirectToDiscordAuth(true);
     }, 3000);
 
     return () => clearTimeout(timer);
