@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { redirectToDiscordAuth } from '../utils/discord';
-import { ExternalLink, Bot } from 'lucide-react';
+import { Bot, ArrowRight } from 'lucide-react';
 
 export default function StripeSuccess() {
   const [searchParams] = useSearchParams();
@@ -29,16 +29,14 @@ export default function StripeSuccess() {
         </div>
         <h1 className="text-2xl font-bold text-primary-500 mb-4">Payment Successful!</h1>
         <p className="text-gray-400 mb-6">
-          Thank you for your subscription! You'll be automatically redirected to add PastorBot to your server.
+          Thank you for your subscription! You'll be automatically redirected to add PastorBot to your server in a few seconds.
         </p>
-        <a
-          href="https://discord.gg/dkJ6Y9Xjs8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-primary-500 hover:text-primary-400 transition-colors"
+        <button
+          onClick={() => redirectToDiscordAuth(true)}
+          className="button-gradient text-white px-6 py-3 rounded-lg inline-flex items-center gap-2"
         >
-          Join our Support Server <ExternalLink className="w-4 h-4" />
-        </a>
+          Add to Discord Now <ArrowRight className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );
