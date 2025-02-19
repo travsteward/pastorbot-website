@@ -40,7 +40,7 @@ exports.handler = async (event) => {
       ],
       mode: 'subscription',
       allow_promotion_codes: true,
-      success_url: `${process.env.PUBLIC_SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${process.env.PUBLIC_SITE_URL}/success/payment?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.PUBLIC_SITE_URL}/cancel`,
       metadata: {
         discord_id: discordId

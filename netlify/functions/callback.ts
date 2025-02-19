@@ -97,7 +97,7 @@ export const handler: Handler = async (event) => {
       return {
         statusCode: 302,
         headers: {
-          Location: '/success?discord=true',
+          Location: '/success/bot',
         },
         body: JSON.stringify({ message: 'Bot installation successful' })
       };
