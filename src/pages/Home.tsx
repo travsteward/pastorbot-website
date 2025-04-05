@@ -8,7 +8,6 @@ import {
   Book,
   Crown,
   CheckCircle2,
-  Bot,
   ArrowRight,
   BookOpen,
   ScrollText,
@@ -109,9 +108,9 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm border-b border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-white">
-            <Bot className="w-6 h-6" />
-            <span className="font-bold">PastorBot</span>
+          <div className="flex items-center gap-3">
+            <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-10 h-10 rounded-full" />
+            <span className="font-bold text-3xl text-white">PastorBot</span>
           </div>
           <button
             onClick={() => redirectToDiscordAuth(true)}
@@ -126,15 +125,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="flex items-center gap-2 mb-6">
-                <Bot className="w-5 h-5 text-primary-500" />
-                <span className="text-sm font-semibold text-primary-500">Biblical Understanding</span>
-                <span className="text-xs px-2 py-1 rounded-full bg-primary-500/10 text-primary-500">AI-Powered</span>
-              </div>
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
                 Unlocking Biblical Scholarship
                 <br />
-                <span className="gradient-text">for Everyone</span>
+                <span className="gradient-text">for Discord</span>
               </h1>
               <p className="text-xl mb-8 leading-relaxed">
                 The Bible is more accessible than ever - yet truly understanding Scripture remains locked behind significant barriers. Until now.
@@ -158,22 +152,53 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-dark-card border border-dark-border rounded-lg p-4">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              <div className="bg-dark-card border border-dark-border rounded-lg overflow-hidden">
+                <div className="bg-dark border-b border-dark-border px-4 py-3 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-6 h-6 rounded-full" />
+                    <span className="text-white font-medium">PastorBot</span>
+                    <span className="text-xs bg-primary-500/20 text-primary-500 px-2 py-0.5 rounded-full">AI Assistant</span>
                   </div>
-                  <span className="text-sm text-gray-500">Biblical Insights in Seconds</span>
+                  <span className="text-gray-500 text-xs">Today at 10:15 AM</span>
                 </div>
-                <div className="font-mono text-sm space-y-2">
-                  <div className="flex items-center gap-2 text-gray-400">
-                    <span className="text-primary-500">$</span>
-                    pastor explain doulos in Greek culture
+                <div className="p-4 space-y-4">
+                  <div className="flex items-start gap-3">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-8 h-8 rounded-full flex-shrink-0 mt-1" />
+                    <div className="flex-1">
+                      <div className="bg-dark-card/50 p-3 rounded-lg">
+                        <p className="text-gray-300 text-sm">Hi there! I'm PastorBot, your AI-powered biblical assistant. What would you like to learn about today?</p>
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1 ml-1">10:15 AM</div>
+                    </div>
                   </div>
-                  <div className="pl-4 text-gray-500">Analyzing historical and cultural context...</div>
-                  <div className="pl-4 text-gray-300">The term "doulos" in ancient Greek society...</div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <Users className="w-4 h-4 text-blue-400" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="bg-dark-card/50 p-3 rounded-lg">
+                        <p className="text-gray-300 text-sm">Can you explain Matthew 12:33-35 in historical context?</p>
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1 ml-1">10:16 AM</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-8 h-8 rounded-full flex-shrink-0 mt-1" />
+                    <div className="flex-1">
+                      <div className="bg-dark-card/50 p-3 rounded-lg">
+                        <p className="text-gray-300 text-sm mb-2">In Matthew 12:33-35, Jesus uses tree imagery to confront the Pharisees. The phrase "offspring of vipers" recalls John the Baptist's condemnation.</p>
+                        <p className="text-gray-300 text-sm">This teaching connects outward speech with inner character - revolutionary in a culture focused on ritual purity rather than heart condition.</p>
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1 ml-1">10:17 AM</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-dark border-t border-dark-border p-3">
+                  <div className="bg-dark-card/30 rounded-full px-4 py-1.5 text-gray-400 text-sm">
+                    Ask a question about the Bible...
+                  </div>
                 </div>
               </div>
             </div>
@@ -194,37 +219,120 @@ export default function Home() {
           {/* Feature 1: Daily Bread */}
           <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
-              <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
-                <Book className="w-6 h-6" />
-              </div>
               <h3 className="text-3xl font-semibold text-white mb-4">Daily Bread</h3>
-              <p className="text-gray-400 leading-relaxed mb-4">
-                Experience daily teachings from Jesus with rich scholarly analysis and cultural context. Each Daily Bread creates a dedicated thread featuring red letter teachings of Jesus.
+
+              {/* Scripture Card moved to left side */}
+              <div className="border-l-4 border-primary-500 pl-4 py-1 mb-6 bg-dark-card/40 rounded-r-lg">
+                <h5 className="text-white font-medium mb-2 flex items-center gap-2">
+                  <Book className="w-4 h-4 text-primary-500" />
+                  Matthew 12:33-35
+                </h5>
+                <div className="p-3 rounded-lg">
+                  <div className="text-gray-300 italic leading-relaxed text-sm">
+                    <p className="mb-2">"Either make the tree good and its fruit good, or make the tree corrupt and its fruit corrupt; for the tree is known by its fruit.</p>
+                    <p className="mb-2"><span>You offspring of vipers</span>, how can you, being evil, speak good things? For out of the abundance of the heart, the mouth speaks.</p>
+                    <p>The good man out of his good treasure brings out good things, and the evil man out of his evil treasure brings out evil things."</p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-gray-400 leading-relaxed mb-6">
+                Experience daily teachings from Jesus with rich scholarly analysis and cultural context.
+                Each Daily Bread delivers red letter teachings with historical background and academic
+                insights directly to your server, complete with professional-quality audio.
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Scripture verses with historical and cultural context</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Professional-quality audio you can listen to anywhere</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Rich scholarly exegesis with academic insights</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Experience Jesus' teachings like never before</span>
-                </li>
-              </ul>
             </div>
-            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
-              <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Book className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-                  <p className="text-gray-400">Daily Bread Visualization</p>
+            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg overflow-hidden">
+              <div className="bg-dark border-b border-dark-border px-4 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-6 h-6 rounded-full" />
+                  <span className="text-white font-medium">PastorBot</span>
+                  <span className="text-xs bg-primary-500/20 text-primary-500 px-2 py-0.5 rounded-full">Daily Bread</span>
+                </div>
+                <span className="text-gray-500 text-xs">Today at 9:00 AM</span>
+              </div>
+
+              <div className="p-4 space-y-5">
+                {/* Audio attachment cards with LISTEN label */}
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="text-lg text-white font-bold py-1 px-4 bg-primary-500 rounded-md shadow-md">
+                      LISTEN
+                    </div>
+                    <div className="flex-1 border-t border-dark-border"></div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="bg-dark-card/30 rounded-lg overflow-hidden border border-dark-border/50">
+                      <div className="p-3 flex items-center gap-3 border-b border-dark-border/50">
+                        <div className="bg-primary-500/20 p-2 rounded-full flex-shrink-0">
+                          <Book className="w-4 h-4 text-primary-500" />
+                        </div>
+                        <div className="flex-1">
+                          <h6 className="text-white font-medium text-sm">Historical Background</h6>
+                          <p className="text-xs text-gray-500">Learn the cultural context behind Jesus' words</p>
+                        </div>
+                      </div>
+                      <div className="px-3 py-2">
+                        <audio controls className="w-full h-8" preload="none">
+                          <source src="/audio/daily-bread/backstory_1740331021.mp3" type="audio/mpeg" />
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                    </div>
+
+                    <div className="bg-dark-card/30 rounded-lg overflow-hidden border border-dark-border/50">
+                      <div className="p-3 flex items-center gap-3 border-b border-dark-border/50">
+                        <div className="bg-primary-500/20 p-2 rounded-full flex-shrink-0">
+                          <ScrollText className="w-4 h-4 text-primary-500" />
+                        </div>
+                        <div className="flex-1">
+                          <h6 className="text-white font-medium text-sm">Scholarly Exegesis</h6>
+                          <p className="text-xs text-gray-500">Academic interpretation and analysis</p>
+                        </div>
+                      </div>
+                      <div className="px-3 py-2">
+                        <audio controls className="w-full h-8" preload="none">
+                          <source src="/audio/daily-bread/exegesis_1740331021.mp3" type="audio/mpeg" />
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                    </div>
+
+                    <div className="bg-dark-card/30 rounded-lg overflow-hidden border border-dark-border/50">
+                      <div className="p-3 flex items-center gap-3 border-b border-dark-border/50">
+                        <div className="bg-primary-500/20 p-2 rounded-full flex-shrink-0">
+                          <MessageCircle className="w-4 h-4 text-primary-500" />
+                        </div>
+                        <div className="flex-1">
+                          <h6 className="text-white font-medium text-sm">Reflection Questions</h6>
+                          <p className="text-xs text-gray-500">Deepen your understanding through reflection</p>
+                        </div>
+                      </div>
+                      <div className="px-3 py-2">
+                        <audio controls className="w-full h-8" preload="none">
+                          <source src="/audio/daily-bread/questions_1740331021.mp3" type="audio/mpeg" />
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Discord reactions */}
+                <div className="flex items-center gap-2 pt-1">
+                  <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                    <span className="text-yellow-500">✨</span>
+                    <span className="text-gray-400">12</span>
+                  </div>
+                  <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                    <span className="text-red-500">❤️</span>
+                    <span className="text-gray-400">8</span>
+                  </div>
+                  <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                    <span className="text-primary-500">🙏</span>
+                    <span className="text-gray-400">24</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -241,9 +349,6 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
-                <MessageCircle className="w-6 h-6" />
-              </div>
               <h3 className="text-3xl font-semibold text-white mb-4">Scholarly Biblical Conversations</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
                 Ask any question about Christianity and receive seminary-level insights with nuanced theological context. Get answers that reflect academic scholarship, not oversimplified explanations.
@@ -272,9 +377,6 @@ export default function Home() {
           {/* Feature 3: Interactive Voice Bible Studies */}
           <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
-              <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
-                <Users className="w-6 h-6" />
-              </div>
               <h3 className="text-3xl font-semibold text-white mb-4">Interactive Voice Bible Studies</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
                 Transform your community's Bible study experience with PastorBot joining your voice channel, providing spoken teachings and analysis like a real pastor leading your study.
@@ -319,9 +421,6 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
-                <Crown className="w-6 h-6" />
-              </div>
               <h3 className="text-3xl font-semibold text-white mb-4">Multiple Theological Perspectives</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
                 Explore Christianity through different denominational lenses and historical viewpoints. Get answers from the perspective of your own tradition or learn how others interpret the same passage.
