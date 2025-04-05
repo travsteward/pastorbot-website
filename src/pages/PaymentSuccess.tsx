@@ -23,7 +23,7 @@ export default function PaymentSuccess() {
           Your payment has been processed successfully. Our system is now linking your subscription to your Discord account.
         </p>
         <p className="text-gray-400 mb-6">
-          You'll receive confirmation in Discord once your premium role has been assigned (this usually happens within a few minutes).
+          You'll receive confirmation in Discord once your premium role has been assigned. Use the <code>/subscription</code> command to manage your subscription.
         </p>
         <button
           onClick={returnToDiscord}

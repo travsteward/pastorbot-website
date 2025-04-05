@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { redirectToCheckout } from '../utils/stripe';
-import { redirectToDiscordAuth, getUserAuthUrl } from '../utils/discord';
+import { redirectToDiscordAuth } from '../utils/discord';
 import { useSearchParams } from 'react-router-dom';
 import {
   MessageCircle,
   Users,
   Book,
-  Church,
   Crown,
   CheckCircle2,
   Bot,
   ArrowRight,
   BookOpen,
   ScrollText,
-  Globe,
-  Heart,
-  X
+  Heart
 } from 'lucide-react';
 
 // Define your price IDs here
@@ -24,95 +21,6 @@ const PRICE_IDS = {
   DISCIPLESHIP: 'price_1QtWxaLK64haKytlqnojtTEH',
   MINISTRY: 'price_1QtWxzLK64haKytlUKcIi2C0'
 };
-
-interface DiscordModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSubmit: (discordId: string) => void;
-  tierName: string;
-}
-
-const DiscordModal: React.FC<DiscordModalProps> = ({ isOpen, onClose, onSubmit, tierName }) => {
-  const [discordId, setDiscordId] = useState('');
-  const [error, setError] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!discordId.trim()) {
-      setError('Please enter your Discord ID');
-      return;
-    }
-    onSubmit(discordId);
-  };
-
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-      <div className="bg-dark-card border border-dark-border rounded-lg p-6 w-full max-w-md relative">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white"
-        >
-          <X className="w-6 h-6" />
-        </button>
-        <h2 className="text-2xl font-bold text-white mb-4">Enter Your Discord ID</h2>
-        <p className="text-gray-400 mb-6">
-          To continue with the {tierName} subscription, please enter your Discord ID.
-        </p>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={discordId}
-            onChange={(e) => setDiscordId(e.target.value)}
-            placeholder="Your Discord ID"
-            className="w-full bg-dark border border-dark-border rounded-lg px-4 py-2 text-white mb-4 focus:outline-none focus:border-primary-500"
-          />
-          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-          <button
-            type="submit"
-            className="w-full button-gradient text-white px-6 py-3 rounded-lg font-semibold hover:shadow-glow"
-          >
-            Continue to Payment
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-const features = [
-  {
-    icon: <MessageCircle className="w-6 h-6" />,
-    title: "Private Thread Conversations",
-    description: "Create personal study spaces, explore Greek and Hebrew word meanings, and engage in deep scriptural exploration with context-aware AI."
-  },
-  {
-    icon: <Users className="w-6 h-6" />,
-    title: "Public Channel Engagement",
-    description: "Start any message with \"Pastor\" for instant scholarly insight and foster group discussion around biblical themes."
-  },
-  {
-    icon: <Crown className="w-6 h-6" />,
-    title: "Multiple Theological Perspectives",
-    description: "Choose from major denominational viewpoints, historical giants like Aquinas and C.S. Lewis, or critical scholarship perspectives."
-  },
-  {
-    icon: <Book className="w-6 h-6" />,
-    title: "Daily Bread Studies",
-    description: "Journey through Jesus' teachings with rich historical context, scholarly exegesis, and professional audio versions."
-  },
-  {
-    icon: <Church className="w-6 h-6" />,
-    title: "AI-Powered Bible Studies",
-    description: "Transform your community with voice-enabled teaching, comprehensive scripture analysis, and interactive group discussions."
-  },
-  {
-    icon: <Globe className="w-6 h-6" />,
-    title: "Digital Church Formation",
-    description: "Build meaningful relationships and transform lives by creating spaces for genuine spiritual discussion and community growth."
-  }
-];
 
 const impacts = [
   {
@@ -143,10 +51,10 @@ const tiers = [
     price: "Free",
     priceId: PRICE_IDS.COMMUNITY,
     features: [
-      "Public channel interactions",
-      "Basic Daily Bread access",
-      "Community Bible study participation",
-      "Standard response time"
+      "Daily Bread - daily teachings from Jesus with scholarly analysis",
+      "Audio TTS of verses, historical background, and exegesis",
+      "Limited access to PastorBot (5 queries per day)",
+      "Basic Bible study tools"
     ]
   },
   {
@@ -154,11 +62,11 @@ const tiers = [
     price: "$9.99/mo",
     priceId: PRICE_IDS.DISCIPLESHIP,
     features: [
-      "Private 1:1 pastoral conversations",
-      "All denominational personas",
-      "Priority response time",
-      "Advanced Daily Bread features",
-      "Audio teachings library"
+      "Unlimited PastorBot conversations (public, private threads, discreet DMs)",
+      "Full access to Bible study tools and weekly studies",
+      "Multiple denominational perspectives and historical personas",
+      "Conversational memory for in-depth discussions",
+      "Complete privacy for sensitive spiritual questions"
     ]
   },
   {
@@ -166,19 +74,16 @@ const tiers = [
     price: "$24.99/mo",
     priceId: PRICE_IDS.MINISTRY,
     features: [
-      "Everything in Discipleship",
-      "Custom church branding",
-      "Unlimited Bible study sessions",
-      "Advanced analytics",
-      "Priority support",
-      "Multiple channels support"
+      "SERVER-WIDE premium access for all members",
+      "All Discipleship tier features for everyone",
+      "Public, private, and discreet PastorBot access",
+      "Unlimited Bible studies and Pastor commands",
+      "Ideal for churches and ministry organizations"
     ]
   }
 ];
 
 export default function Home() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedTier, setSelectedTier] = useState<{ name: string; priceId: string } | null>(null);
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
@@ -194,17 +99,9 @@ export default function Home() {
     }
   }, [searchParams]);
 
-  const handleGetStarted = (tier: { name: string; priceId: string }) => {
-    if (tier.priceId === PRICE_IDS.COMMUNITY) {
-      // For free tier, redirect directly to bot installation
-      redirectToDiscordAuth(true);
-    } else {
-      // For paid tiers, start with Discord user auth
-      // Store selected tier in URL params
-      const params = new URLSearchParams();
-      params.set('tier', tier.name);
-      window.location.href = `${getUserAuthUrl()}&state=${params.toString()}`;
-    }
+  const handleGetStarted = () => {
+    // For all tiers, redirect to Discord bot installation
+    redirectToDiscordAuth(true);
   };
 
   return (
@@ -284,7 +181,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Features Grid */}
+      {/* Features Grid - Replacing with Feature Showcase Sections */}
       <div className="py-16 gradient-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -293,16 +190,161 @@ export default function Home() {
               PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="feature-gradient p-8 rounded-xl">
-                <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+
+          {/* Feature 1: Daily Bread */}
+          <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
+                <Book className="w-6 h-6" />
               </div>
-            ))}
+              <h3 className="text-3xl font-semibold text-white mb-4">Daily Bread</h3>
+              <p className="text-gray-400 leading-relaxed mb-4">
+                Experience daily teachings from Jesus with rich scholarly analysis and cultural context. Each Daily Bread creates a dedicated thread featuring red letter teachings of Jesus.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Scripture verses with historical and cultural context</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Professional-quality audio you can listen to anywhere</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Rich scholarly exegesis with academic insights</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Experience Jesus' teachings like never before</span>
+                </li>
+              </ul>
+            </div>
+            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
+              <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
+                <div className="text-center p-8">
+                  <Book className="w-16 h-16 text-primary-500 mx-auto mb-4" />
+                  <p className="text-gray-400">Daily Bread Visualization</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 2: Scholarly Biblical Conversations */}
+          <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
+              <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
+                <div className="text-center p-8">
+                  <MessageCircle className="w-16 h-16 text-primary-500 mx-auto mb-4" />
+                  <p className="text-gray-400">Scholarly Conversations Visualization</p>
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
+                <MessageCircle className="w-6 h-6" />
+              </div>
+              <h3 className="text-3xl font-semibold text-white mb-4">Scholarly Biblical Conversations</h3>
+              <p className="text-gray-400 leading-relaxed mb-4">
+                Ask any question about Christianity and receive seminary-level insights with nuanced theological context. Get answers that reflect academic scholarship, not oversimplified explanations.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Public channel interactions - just start with "Pastor"</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Private thread discussions with the /pastor command</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Completely private DM conversations with /discreet</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Ask sensitive questions with total confidentiality</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Feature 3: Interactive Voice Bible Studies */}
+          <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
+                <Users className="w-6 h-6" />
+              </div>
+              <h3 className="text-3xl font-semibold text-white mb-4">Interactive Voice Bible Studies</h3>
+              <p className="text-gray-400 leading-relaxed mb-4">
+                Transform your community's Bible study experience with PastorBot joining your voice channel, providing spoken teachings and analysis like a real pastor leading your study.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">PastorBot joins voice channels and speaks scripture</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Delivers historical context and scholarly analysis vocally</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Functions like a digital pastor guiding your study</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Makes scholarly Bible study accessible for everyone</span>
+                </li>
+              </ul>
+            </div>
+            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
+              <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
+                <div className="text-center p-8">
+                  <Users className="w-16 h-16 text-primary-500 mx-auto mb-4" />
+                  <p className="text-gray-400">Voice Bible Studies Visualization</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 4: Multiple Theological Perspectives */}
+          <div className="mb-12 flex flex-col-reverse lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
+              <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
+                <div className="text-center p-8">
+                  <Crown className="w-16 h-16 text-primary-500 mx-auto mb-4" />
+                  <p className="text-gray-400">Theological Perspectives Visualization</p>
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <div className="text-primary-500 bg-dark-card p-3 rounded-lg w-fit mb-6">
+                <Crown className="w-6 h-6" />
+              </div>
+              <h3 className="text-3xl font-semibold text-white mb-4">Multiple Theological Perspectives</h3>
+              <p className="text-gray-400 leading-relaxed mb-4">
+                Explore Christianity through different denominational lenses and historical viewpoints. Get answers from the perspective of your own tradition or learn how others interpret the same passage.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Various denominational perspectives (Catholic, Orthodox, Protestant)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Historical theological figures like C.S. Lewis</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Critical scholarship perspectives</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Understand different interpretations and theological approaches</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -339,7 +381,7 @@ export default function Home() {
             </div>
             <h2 className="text-4xl font-bold text-white mb-4">Ready to Transform Your Community?</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Whether you're starting a new digital ministry or enhancing an existing one, PastorBot provides the theological depth and accessibility your community deserves.
+              Add PastorBot to your server for free and experience premium features through the <code>/subscription</code> command directly in Discord.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -356,10 +398,10 @@ export default function Home() {
                   ))}
                 </ul>
                 <button
-                  onClick={() => handleGetStarted({ name: tier.name, priceId: tier.priceId })}
+                  onClick={() => handleGetStarted()}
                   className="w-full button-gradient text-white px-6 py-3 rounded-lg font-semibold hover:shadow-glow"
                 >
-                  Get Started
+                  Add to Server
                 </button>
               </div>
             ))}

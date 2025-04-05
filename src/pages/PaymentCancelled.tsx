@@ -18,7 +18,7 @@ export default function PaymentCancelled() {
         </div>
         <h1 className="text-2xl font-bold text-red-500 mb-4">Payment Cancelled</h1>
         <p className="text-gray-400 mb-6">
-          Your subscription payment was not completed. Premium features are still waiting for you!
+          Your subscription payment was not completed. To try again, use the <code>/subscription</code> command in Discord.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
