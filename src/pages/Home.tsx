@@ -512,7 +512,6 @@ export default function Home() {
       <footer className="py-12 border-t border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="mb-4 text-lg text-gray-400">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
-          <p className="text-sm text-gray-500">© 2024 PastorBot. All rights reserved.</p>
         </div>
       </footer>
     </div>
