@@ -5,6 +5,8 @@ import StripeSuccess from './pages/StripeSuccess';
 import BotSuccess from './pages/BotSuccess';
 import PaymentSuccess from './pages/PaymentSuccess';
 import PaymentCancelled from './pages/PaymentCancelled';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/success/payment" element={<StripeSuccess />} />
         <Route path="/success/bot" element={<BotSuccess />} />
         <Route path="/cancel" element={<Cancel />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </Router>

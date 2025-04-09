@@ -13,6 +13,7 @@ import {
   ScrollText,
   Heart
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Define your price IDs here
 const PRICE_IDS = {
@@ -58,7 +59,7 @@ const tiers = [
   },
   {
     name: "Discipleship",
-    price: "$9.99/mo",
+    price: "$2.99/mo",
     priceId: PRICE_IDS.DISCIPLESHIP,
     features: [
       "Unlimited PastorBot conversations (public, private threads, discreet DMs)",
@@ -510,8 +511,24 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-12 border-t border-dark-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="mb-4 text-lg text-gray-400">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 text-center">
+            <p className="text-lg text-gray-400">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+            <Link to="/privacy-policy" className="text-primary-500 hover:text-primary-400 text-sm">
+              Privacy Policy
+            </Link>
+            <span className="hidden md:inline text-gray-600">•</span>
+            <Link to="/terms-of-service" className="text-primary-500 hover:text-primary-400 text-sm">
+              Terms of Service
+            </Link>
+            <span className="hidden md:inline text-gray-600">•</span>
+            <p className="text-sm text-gray-500">
+              © {new Date().getFullYear()} PastorBot. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
