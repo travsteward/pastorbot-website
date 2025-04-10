@@ -211,7 +211,7 @@ export default function Home() {
       <div className="py-16 gradient-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">Your Gateway to Biblical Scholarship</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Biblical Knowledge at Your Fingertips</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI.
             </p>
