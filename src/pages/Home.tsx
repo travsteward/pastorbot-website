@@ -408,9 +408,9 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+                        </div>
+                        </div>
+                      </div>
 
           {/* Feature 3: Scholarly Insights (renamed from Scholarly Biblical Conversations) */}
           <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
@@ -426,7 +426,7 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
                     <Users className="w-5 h-5 text-blue-400" />
-                  </div>
+                      </div>
                   <div className="flex-1">
                     <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
                       <p className="text-gray-300 text-sm">Pastor, is "God helps those who help themselves" in the Bible? I hear it quoted all the time.</p>
