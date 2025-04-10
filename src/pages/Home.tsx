@@ -3,10 +3,8 @@ import { redirectToCheckout } from '../utils/stripe';
 import { redirectToDiscordAuth } from '../utils/discord';
 import { useSearchParams } from 'react-router-dom';
 import {
-  MessageCircle,
   Users,
   Book,
-  Crown,
   CheckCircle2,
   ArrowRight,
   BookOpen,
@@ -51,10 +49,11 @@ const tiers = [
     price: "Free",
     priceId: PRICE_IDS.COMMUNITY,
     features: [
-      "Daily Bread - daily teachings from Jesus with scholarly analysis",
-      "Audio TTS of verses, historical background, and exegesis",
-      "Limited access to PastorBot (5 queries per day)",
-      "Basic Bible study tools"
+      "Daily Bible study teachings from Jesus with scholarly analysis",
+      "Audio for verses, historical background, and scholarly insights",
+      "PastorBot conversations (5 queries per day, all formats)",
+      "Biblical perspectives from different theological traditions",
+      "Weekly Bible study you can do with other members of the Discord"
     ]
   },
   {
@@ -153,55 +152,57 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-dark-card border border-dark-border rounded-lg overflow-hidden">
-                <div className="bg-dark border-b border-dark-border px-4 py-3 flex items-center justify-between">
-                  <div className="flex items-center gap-2.5">
-                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-6 h-6 rounded-full" />
+              <div className="bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+                <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
                     <span className="text-white font-medium">PastorBot</span>
-                    <span className="text-xs bg-primary-500/20 text-primary-500 px-2 py-0.5 rounded-full">AI Assistant</span>
+                    <span className="text-xs bg-primary-500/15 text-primary-400 px-3 py-1 rounded-full font-medium">AI Assistant</span>
                   </div>
                   <span className="text-gray-500 text-xs">Today at 10:15 AM</span>
                 </div>
-                <div className="p-4 space-y-4">
-                  <div className="flex items-start gap-3">
-                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-8 h-8 rounded-full flex-shrink-0 mt-1" />
+                <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
+                  <div className="flex items-start gap-4">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-9 h-9 rounded-full flex-shrink-0 mt-1 border border-primary-500/20 shadow-sm" />
                     <div className="flex-1">
-                      <div className="bg-dark-card/50 p-3 rounded-lg">
+                      <div className="bg-dark/50 p-4 rounded-lg border border-primary-500/10 shadow-sm">
                         <p className="text-gray-300 text-sm">Hi there! I'm PastorBot, your AI-powered biblical assistant. What would you like to learn about today?</p>
                       </div>
-                      <div className="text-xs text-gray-500 mt-1 ml-1">10:15 AM</div>
+                      <div className="text-xs text-gray-500 mt-1.5 ml-1">10:15 AM</div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <Users className="w-4 h-4 text-blue-400" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
+                      <Users className="w-5 h-5 text-blue-400" />
                     </div>
                     <div className="flex-1">
-                      <div className="bg-dark-card/50 p-3 rounded-lg">
+                      <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
                         <p className="text-gray-300 text-sm">Can you explain Matthew 12:33-35 in historical context?</p>
                       </div>
-                      <div className="text-xs text-gray-500 mt-1 ml-1">10:16 AM</div>
+                      <div className="text-xs text-gray-500 mt-1.5 ml-1">10:16 AM</div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-8 h-8 rounded-full flex-shrink-0 mt-1" />
+                  <div className="flex items-start gap-4">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-9 h-9 rounded-full flex-shrink-0 mt-1 border border-primary-500/20 shadow-sm" />
                     <div className="flex-1">
-                      <div className="bg-dark-card/50 p-3 rounded-lg">
-                        <p className="text-gray-300 text-sm mb-2">In Matthew 12:33-35, Jesus uses tree imagery to confront the Pharisees. The phrase "offspring of vipers" recalls John the Baptist's condemnation.</p>
+                      <div className="bg-dark/50 p-4 rounded-lg border border-primary-500/10 shadow-sm">
+                        <p className="text-gray-300 text-sm mb-3">In Matthew 12:33-35, Jesus uses tree imagery to confront the Pharisees. The phrase "offspring of vipers" recalls John the Baptist's condemnation.</p>
                         <p className="text-gray-300 text-sm">This teaching connects outward speech with inner character - revolutionary in a culture focused on ritual purity rather than heart condition.</p>
                       </div>
-                      <div className="text-xs text-gray-500 mt-1 ml-1">10:17 AM</div>
+                      <div className="text-xs text-gray-500 mt-1.5 ml-1">10:17 AM</div>
                     </div>
                   </div>
                 </div>
-                <div className="bg-dark border-t border-dark-border p-3">
-                  <div className="bg-dark-card/30 rounded-full px-4 py-1.5 text-gray-400 text-sm">
+                <div className="bg-dark/80 border-t border-primary-500/20 p-4">
+                  <div className="bg-dark/70 rounded-full px-5 py-2.5 text-gray-400 text-sm border border-primary-500/10 shadow-inner flex items-center gap-2">
+                    <span className="text-primary-400 text-xs">→</span>
                     Ask a question about the Bible...
                   </div>
                 </div>
               </div>
+              <div className="absolute -bottom-3 -right-3 -left-3 h-10 bg-gradient-to-t from-dark to-transparent z-10"></div>
             </div>
           </div>
         </div>
@@ -243,39 +244,39 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg overflow-hidden">
-              <div className="bg-dark border-b border-dark-border px-4 py-3 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-6 h-6 rounded-full" />
+            <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+              <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
                   <span className="text-white font-medium">PastorBot</span>
-                  <span className="text-xs bg-primary-500/20 text-primary-500 px-2 py-0.5 rounded-full">Bible Study</span>
+                  <span className="text-xs bg-primary-500/15 text-primary-400 px-3 py-1 rounded-full font-medium">Bible Study</span>
                 </div>
                 <span className="text-gray-500 text-xs">Today at 9:00 AM</span>
               </div>
 
-              <div className="p-4 space-y-5">
+              <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
                 {/* Audio attachment cards with LISTEN label */}
                 <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="text-lg text-white font-bold py-1 px-4 bg-primary-500 rounded-md shadow-md">
+                  <div className="flex items-center gap-2 mb-5">
+                    <div className="text-base text-white font-bold py-1.5 px-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-lg shadow-md">
                       LISTEN
                     </div>
-                    <div className="flex-1 border-t border-dark-border"></div>
+                    <div className="flex-1 border-t border-primary-500/20"></div>
                   </div>
 
-                  <div className="space-y-3">
-                    <div className="bg-dark-card/30 rounded-lg overflow-hidden border border-dark-border/50">
-                      <div className="p-3 flex items-center gap-3 border-b border-dark-border/50">
-                        <div className="bg-primary-500/20 p-2 rounded-full flex-shrink-0">
-                          <Book className="w-4 h-4 text-primary-500" />
+                  <div className="space-y-4">
+                    <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md">
+                      <div className="p-4 flex items-center gap-4 border-b border-dark-border/50">
+                        <div className="bg-primary-500/15 p-3 rounded-lg flex-shrink-0">
+                          <Book className="w-5 h-5 text-primary-400" />
                         </div>
                         <div className="flex-1">
                           <h6 className="text-white font-medium text-sm">Historical Background</h6>
-                          <p className="text-xs text-gray-500">Learn the cultural context behind Jesus' words</p>
+                          <p className="text-xs text-gray-400">Learn the cultural context behind Jesus' words</p>
                         </div>
                       </div>
-                      <div className="px-3 py-2">
-                        <audio controls className="w-full h-8" preload="none">
+                      <div className="px-4 py-3 bg-dark/30">
+                        <audio controls className="w-full h-12 rounded" preload="none">
                           <source src="/audio/daily-bread/backstory_1740331021.mp3" type="audio/mpeg" />
                           Your browser does not support the audio element.
                         </audio>
@@ -284,15 +285,15 @@ export default function Home() {
 
                     {/* Discord reactions */}
                     <div className="flex items-center gap-2 pt-1">
-                      <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                      <div className="bg-dark/40 p-1.5 px-3 rounded-lg flex items-center gap-1.5 text-xs cursor-pointer hover:bg-dark-card/80 border border-dark-border/50">
                         <span className="text-yellow-500">✨</span>
                         <span className="text-gray-400">12</span>
                       </div>
-                      <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                      <div className="bg-dark/40 p-1.5 px-3 rounded-lg flex items-center gap-1.5 text-xs cursor-pointer hover:bg-dark-card/80 border border-dark-border/50">
                         <span className="text-red-500">❤️</span>
                         <span className="text-gray-400">8</span>
                       </div>
-                      <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                      <div className="bg-dark/40 p-1.5 px-3 rounded-lg flex items-center gap-1.5 text-xs cursor-pointer hover:bg-dark-card/80 border border-dark-border/50">
                         <span className="text-primary-500">🙏</span>
                         <span className="text-gray-400">24</span>
                       </div>
@@ -303,49 +304,48 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature 2: Deep Theology (New section) */}
+          {/* New Feature: Interactive Voice and Audio */}
           <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg overflow-hidden">
-              <div className="bg-dark border-b border-dark-border px-4 py-3 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-6 h-6 rounded-full" />
-                  <span className="text-white font-medium">PastorBot</span>
-                  <span className="text-xs bg-primary-500/20 text-primary-500 px-2 py-0.5 rounded-full">Deep Theology</span>
-                </div>
-                <span className="text-gray-500 text-xs">Today at 10:30 AM</span>
-              </div>
-
-              <div className="p-4 space-y-5">
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="text-lg text-white font-bold py-1 px-4 bg-primary-500 rounded-md shadow-md">
-                      EXEGESIS
-                    </div>
-                    <div className="flex-1 border-t border-dark-border"></div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="bg-dark-card/30 rounded-lg overflow-hidden border border-dark-border/50">
-                      <div className="p-3 flex items-center gap-3 border-b border-dark-border/50">
-                        <div className="bg-primary-500/20 p-2 rounded-full flex-shrink-0">
-                          <ScrollText className="w-4 h-4 text-primary-500" />
-                        </div>
-                        <div className="flex-1">
-                          <h6 className="text-white font-medium text-sm">Scholarly Exegesis</h6>
-                          <p className="text-xs text-gray-500">Academic interpretation and analysis</p>
-                        </div>
-                      </div>
-                      <div className="px-3 py-2">
-                        <audio controls className="w-full h-8" preload="none">
-                          <source src="/audio/daily-bread/exegesis_1740331021.mp3" type="audio/mpeg" />
-                          Your browser does not support the audio element.
-                        </audio>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+              <div className="bg-dark border-b border-dark-border p-0">
+                <img src="/images/pastorbot/pastorbot_voice1.png" alt="PastorBot in Discord Voice Channel" className="w-full" />
               </div>
             </div>
+            <div className="lg:w-1/2">
+              <h3 className="text-3xl font-semibold text-white mb-4">Interactive Voice and Audio</h3>
+              <p className="text-gray-400 leading-relaxed mb-6">
+                Experience a revolutionary approach to Bible study with PastorBot's dynamic audio capabilities.
+                PastorBot doesn't just respond with text - it actually joins your Discord voice channels and speaks
+                directly to your community, creating an immersive study experience.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">PastorBot joins voice channels and speaks like a real study participant</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">High-quality audio for scripture, historical context, and theological insights</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Can lead Bible studies vocally if no qualified leader is available</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Audio delivery of typology, exegesis, and interpretive frameworks</span>
+                </li>
+              </ul>
+              <p className="text-gray-400 leading-relaxed">
+                Transform how your community engages with scripture through an immersive audio experience
+                that makes complex biblical concepts accessible to everyone, regardless of their
+                theological background.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature 2: Deep Theology (New section) */}
+          <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <h3 className="text-3xl font-semibold text-white mb-4">Deep Theology</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
@@ -372,16 +372,119 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+            <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+              <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
+                  <span className="text-white font-medium">PastorBot</span>
+                  <span className="text-xs bg-primary-500/15 text-primary-400 px-3 py-1 rounded-full font-medium">Deep Theology</span>
+                </div>
+                <span className="text-gray-500 text-xs">Today at 10:30 AM</span>
+              </div>
+
+              <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
+                <div>
+                  <div className="flex items-center gap-2 mb-5">
+                    <div className="text-base text-white font-bold py-1.5 px-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-lg shadow-md">
+                      LEARN
+                    </div>
+                    <div className="flex-1 border-t border-primary-500/20"></div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md">
+                      <div className="p-4 flex items-center gap-4 border-b border-dark-border/50">
+                        <div className="bg-primary-500/15 p-3 rounded-lg flex-shrink-0">
+                          <ScrollText className="w-5 h-5 text-primary-400" />
+                        </div>
+                        <div className="flex-1">
+                          <h6 className="text-white font-medium text-sm">Scholarly Exegesis</h6>
+                          <p className="text-xs text-gray-400">Academic interpretation and analysis</p>
+                        </div>
+                      </div>
+                      <div className="px-4 py-3 bg-dark/30">
+                        <audio controls className="w-full h-12 rounded" preload="none">
+                          <source src="/audio/daily-bread/exegesis_1740331021.mp3" type="audio/mpeg" />
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Feature 3: Scholarly Biblical Conversations (keeping existing) */}
-          <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
+          {/* Feature 3: Scholarly Insights (renamed from Scholarly Biblical Conversations) */}
+          <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+              <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
+                  <span className="text-white font-medium">PastorBot</span>
+                  <span className="text-xs bg-primary-500/15 text-primary-400 px-3 py-1 rounded-full font-medium">Scholarly Insight</span>
+                </div>
+                <span className="text-gray-500 text-xs">Today at 2:45 PM</span>
+              </div>
+              <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
+                <div className="flex items-start gap-4">
+                  <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
+                    <Users className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
+                      <p className="text-gray-300 text-sm">Pastor, is "God helps those who help themselves" in the Bible? I hear it quoted all the time.</p>
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1.5 ml-1">2:45 PM</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-9 h-9 rounded-full flex-shrink-0 mt-1 border border-primary-500/20 shadow-sm" />
+                  <div className="flex-1">
+                    <div className="bg-dark/50 p-4 rounded-lg border border-primary-500/10 shadow-sm">
+                      <p className="text-gray-300 text-sm mb-3">This phrase isn't found in scripture. It originates from Benjamin Franklin's "Poor Richard's Almanack" (1736) and reflects Enlightenment thinking.</p>
+                      <p className="text-gray-300 text-sm">The Bible teaches the opposite - God helping the helpless. In Romans 5:8, <span className="text-primary-400">"While we were still sinners, Christ died for us."</span> Salvation is God's initiative, not our effort (Ephesians 2:8-9).</p>
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1.5 ml-1">2:47 PM</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
+                    <Users className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
+                      <p className="text-gray-300 text-sm">Wow, I had no idea! Are there other common "biblical" sayings that aren't actually in the Bible?</p>
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1.5 ml-1">2:48 PM</div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-dark/80 border-t border-primary-500/20 p-4">
+                <div className="bg-dark/70 rounded-full px-5 py-2.5 text-gray-400 text-sm border border-primary-500/10 shadow-inner flex items-center gap-2">
+                  <span className="text-primary-400 text-xs">→</span>
+                  Ask a theological question...
+                </div>
+              </div>
+            </div>
             <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-4">Scholarly Biblical Conversations</h3>
-              <p className="text-gray-400 leading-relaxed mb-4">
+              <h3 className="text-3xl font-semibold text-white mb-5">Scholarly Insights</h3>
+              <p className="text-gray-400 leading-relaxed mb-6">
                 Ask any question about Christianity and receive seminary-level insights with nuanced theological context. Get answers that reflect academic scholarship, not oversimplified explanations.
               </p>
-              <ul className="space-y-3">
+
+              <div className="mb-6 border-l-4 border-primary-500/50 pl-4 py-2 italic">
+                <p className="text-gray-300 text-sm">"PastorBot helped our Bible study group understand difficult passages by providing historical context and theological perspectives we would never have discovered on our own."</p>
+                <p className="text-primary-400 text-sm mt-2">— Pastor Michael, Community Church</p>
+              </div>
+
+              <p className="text-gray-400 leading-relaxed mb-6">
+                Whether you're curious about biblical interpretation, church history, or theological concepts, PastorBot provides thoughtful, nuanced answers that respect both scholarship and faith.
+              </p>
+
+              <ul className="space-y-4 mb-4">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-400">Public channel interactions - just start with "Pastor"</span>
@@ -400,24 +503,13 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
-              <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <MessageCircle className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-                  <p className="text-gray-400">Scholarly Conversations Visualization</p>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Feature 4: Multiple Personas (renamed from Multiple Theological Perspectives) */}
           <div className="mb-12 flex flex-col-reverse lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
-              <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Crown className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-                  <p className="text-gray-400">Placeholder for CS Lewis and others collage</p>
-                </div>
+            <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+              <div className="p-6">
+                <img src="/images/pastorbot/personas2.png" alt="Christian Thinkers Through History" className="w-full rounded-lg shadow-md" />
               </div>
             </div>
             <div className="lg:w-1/2">
