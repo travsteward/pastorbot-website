@@ -217,12 +217,18 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Feature 1: Daily Bread */}
+          {/* Feature 1: Rich Bible Studies (formerly Daily Bread) */}
           <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-4">Daily Bread</h3>
+              <h3 className="text-3xl font-semibold text-white mb-4">Rich Bible Studies</h3>
 
-              {/* Scripture Card moved to left side */}
+              <p className="text-gray-400 leading-relaxed mb-6">
+                Experience richly detailed Bible studies with cultural and historical context.
+                Each study provides meaningful background to help you understand scripture
+                as it was understood in its time, complete with professional-quality audio.
+              </p>
+
+              {/* Scripture Card moved below paragraph */}
               <div className="border-l-4 border-primary-500 pl-4 py-1 mb-6 bg-dark-card/40 rounded-r-lg">
                 <h5 className="text-white font-medium mb-2 flex items-center gap-2">
                   <Book className="w-4 h-4 text-primary-500" />
@@ -236,19 +242,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
-              <p className="text-gray-400 leading-relaxed mb-6">
-                Experience daily teachings from Jesus with rich scholarly analysis and cultural context.
-                Each Daily Bread delivers red letter teachings with historical background and academic
-                insights directly to your server, complete with professional-quality audio.
-              </p>
             </div>
             <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg overflow-hidden">
               <div className="bg-dark border-b border-dark-border px-4 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-6 h-6 rounded-full" />
                   <span className="text-white font-medium">PastorBot</span>
-                  <span className="text-xs bg-primary-500/20 text-primary-500 px-2 py-0.5 rounded-full">Daily Bread</span>
+                  <span className="text-xs bg-primary-500/20 text-primary-500 px-2 py-0.5 rounded-full">Bible Study</span>
                 </div>
                 <span className="text-gray-500 text-xs">Today at 9:00 AM</span>
               </div>
@@ -282,6 +282,49 @@ export default function Home() {
                       </div>
                     </div>
 
+                    {/* Discord reactions */}
+                    <div className="flex items-center gap-2 pt-1">
+                      <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                        <span className="text-yellow-500">✨</span>
+                        <span className="text-gray-400">12</span>
+                      </div>
+                      <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                        <span className="text-red-500">❤️</span>
+                        <span className="text-gray-400">8</span>
+                      </div>
+                      <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
+                        <span className="text-primary-500">🙏</span>
+                        <span className="text-gray-400">24</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature 2: Deep Theology (New section) */}
+          <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg overflow-hidden">
+              <div className="bg-dark border-b border-dark-border px-4 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-6 h-6 rounded-full" />
+                  <span className="text-white font-medium">PastorBot</span>
+                  <span className="text-xs bg-primary-500/20 text-primary-500 px-2 py-0.5 rounded-full">Deep Theology</span>
+                </div>
+                <span className="text-gray-500 text-xs">Today at 10:30 AM</span>
+              </div>
+
+              <div className="p-4 space-y-5">
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="text-lg text-white font-bold py-1 px-4 bg-primary-500 rounded-md shadow-md">
+                      EXEGESIS
+                    </div>
+                    <div className="flex-1 border-t border-dark-border"></div>
+                  </div>
+
+                  <div className="space-y-3">
                     <div className="bg-dark-card/30 rounded-lg overflow-hidden border border-dark-border/50">
                       <div className="p-3 flex items-center gap-3 border-b border-dark-border/50">
                         <div className="bg-primary-500/20 p-2 rounded-full flex-shrink-0">
@@ -299,56 +342,40 @@ export default function Home() {
                         </audio>
                       </div>
                     </div>
-
-                    <div className="bg-dark-card/30 rounded-lg overflow-hidden border border-dark-border/50">
-                      <div className="p-3 flex items-center gap-3 border-b border-dark-border/50">
-                        <div className="bg-primary-500/20 p-2 rounded-full flex-shrink-0">
-                          <MessageCircle className="w-4 h-4 text-primary-500" />
-                        </div>
-                        <div className="flex-1">
-                          <h6 className="text-white font-medium text-sm">Reflection Questions</h6>
-                          <p className="text-xs text-gray-500">Deepen your understanding through reflection</p>
-                        </div>
-                      </div>
-                      <div className="px-3 py-2">
-                        <audio controls className="w-full h-8" preload="none">
-                          <source src="/audio/daily-bread/questions_1740331021.mp3" type="audio/mpeg" />
-                          Your browser does not support the audio element.
-                        </audio>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Discord reactions */}
-                <div className="flex items-center gap-2 pt-1">
-                  <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
-                    <span className="text-yellow-500">✨</span>
-                    <span className="text-gray-400">12</span>
-                  </div>
-                  <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
-                    <span className="text-red-500">❤️</span>
-                    <span className="text-gray-400">8</span>
-                  </div>
-                  <div className="bg-dark p-1 px-2 rounded-md flex items-center gap-1 text-xs cursor-pointer hover:bg-dark-card/80">
-                    <span className="text-primary-500">🙏</span>
-                    <span className="text-gray-400">24</span>
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="lg:w-1/2">
+              <h3 className="text-3xl font-semibold text-white mb-4">Deep Theology</h3>
+              <p className="text-gray-400 leading-relaxed mb-6">
+                Dive into seminary-level theological analysis that explores the deeper layers of scripture.
+                Each passage is examined through rigorous scholarly exegesis, providing insights into
+                theological principles, literary structure, and interpretive frameworks.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Rigorous academic interpretation of scripture</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Original language insights from Hebrew and Greek</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Theological framework and doctrinal analysis</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-400">Textual criticism and interpretive methods</span>
+                </li>
+              </ul>
             </div>
           </div>
 
-          {/* Feature 2: Scholarly Biblical Conversations */}
-          <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
-              <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <MessageCircle className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-                  <p className="text-gray-400">Scholarly Conversations Visualization</p>
-                </div>
-              </div>
-            </div>
+          {/* Feature 3: Scholarly Biblical Conversations (keeping existing) */}
+          <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <h3 className="text-3xl font-semibold text-white mb-4">Scholarly Biblical Conversations</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
@@ -373,67 +400,39 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-          </div>
-
-          {/* Feature 3: Interactive Voice Bible Studies */}
-          <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-4">Interactive Voice Bible Studies</h3>
-              <p className="text-gray-400 leading-relaxed mb-4">
-                Transform your community's Bible study experience with PastorBot joining your voice channel, providing spoken teachings and analysis like a real pastor leading your study.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">PastorBot joins voice channels and speaks scripture</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Delivers historical context and scholarly analysis vocally</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Functions like a digital pastor guiding your study</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Makes scholarly Bible study accessible for everyone</span>
-                </li>
-              </ul>
-            </div>
             <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
               <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
                 <div className="text-center p-8">
-                  <Users className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-                  <p className="text-gray-400">Voice Bible Studies Visualization</p>
+                  <MessageCircle className="w-16 h-16 text-primary-500 mx-auto mb-4" />
+                  <p className="text-gray-400">Scholarly Conversations Visualization</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Feature 4: Multiple Theological Perspectives */}
+          {/* Feature 4: Multiple Personas (renamed from Multiple Theological Perspectives) */}
           <div className="mb-12 flex flex-col-reverse lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 bg-dark-card border border-dark-border rounded-lg p-5">
               <div className="aspect-video bg-dark rounded-lg flex items-center justify-center">
                 <div className="text-center p-8">
                   <Crown className="w-16 h-16 text-primary-500 mx-auto mb-4" />
-                  <p className="text-gray-400">Theological Perspectives Visualization</p>
+                  <p className="text-gray-400">Placeholder for CS Lewis and others collage</p>
                 </div>
               </div>
             </div>
             <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-4">Multiple Theological Perspectives</h3>
+              <h3 className="text-3xl font-semibold text-white mb-4">Multiple Personas</h3>
               <p className="text-gray-400 leading-relaxed mb-4">
-                Explore Christianity through different denominational lenses and historical viewpoints. Get answers from the perspective of your own tradition or learn how others interpret the same passage.
+                Engage with biblical content through the lens of influential Christian thinkers throughout history. Learn from the perspectives of theological giants like C.S. Lewis and others who have shaped Christian thought.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Various denominational perspectives (Catholic, Orthodox, Protestant)</span>
+                  <span className="text-gray-400">Historical theological figures like C.S. Lewis</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Historical theological figures like C.S. Lewis</span>
+                  <span className="text-gray-400">Various denominational perspectives (Catholic, Orthodox, Protestant)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
