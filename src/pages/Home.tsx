@@ -157,7 +157,6 @@ export default function Home() {
                   <div className="flex items-center gap-3">
                     <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
                     <span className="text-white font-medium">PastorBot</span>
-                    <span className="text-xs bg-primary-500/15 text-primary-400 px-3 py-1 rounded-full font-medium">AI Assistant</span>
                   </div>
                   <span className="text-gray-500 text-xs">Today at 10:15 AM</span>
                 </div>
@@ -249,7 +248,6 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
                   <span className="text-white font-medium">PastorBot</span>
-                  <span className="text-xs bg-primary-500/15 text-primary-400 px-3 py-1 rounded-full font-medium">Bible Study</span>
                 </div>
                 <span className="text-gray-500 text-xs">Today at 9:00 AM</span>
               </div>
@@ -377,7 +375,6 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
                   <span className="text-white font-medium">PastorBot</span>
-                  <span className="text-xs bg-primary-500/15 text-primary-400 px-3 py-1 rounded-full font-medium">Deep Theology</span>
                 </div>
                 <span className="text-gray-500 text-xs">Today at 10:30 AM</span>
               </div>
@@ -422,7 +419,6 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
                   <span className="text-white font-medium">PastorBot</span>
-                  <span className="text-xs bg-primary-500/15 text-primary-400 px-3 py-1 rounded-full font-medium">Scholarly Insight</span>
                 </div>
                 <span className="text-gray-500 text-xs">Today at 2:45 PM</span>
               </div>
