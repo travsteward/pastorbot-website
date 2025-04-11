@@ -2,12 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7C3AED" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Basic SEO meta tags -->
+    <meta name="description" content="PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI." />
+    <meta name="keywords" content="PastorBot, Bible Study, Discord Bot, AI Bible, Biblical Scholarship, Theology" />
+    <meta name="author" content="PastorBot" />
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" href="/images/pastorbot/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/pastorbot/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Default Open Graph Tags (will be overwritten by react-helmet-async) -->
+    <meta property="og:title" content="PastorBot - Biblical Scholarship for Everyone" />
+    <meta property="og:description" content="PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pastorbot.app" />
+    <meta property="og:image" content="/images/pastorbot/pastorbot.png" />
+
+    <!-- Twitter Cards (will be overwritten by react-helmet-async) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PastorBot - Biblical Scholarship for Everyone" />
+    <meta name="twitter:description" content="PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI." />
+    <meta name="twitter:image" content="/images/pastorbot/pastorbot.png" />
+
+    <!-- Canonical URL (will be overwritten by react-helmet-async) -->
+    <link rel="canonical" href="https://pastorbot.app" />
+
     <title>PastorBot - Biblical Scholarship for Everyone</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Preconnect to relevant domains to improve performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </body>
 </html>

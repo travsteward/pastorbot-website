@@ -1,10 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import SEO from '../utils/SEO';
+import { SEO_CONFIG, getPageSchema } from '../utils/seo-data';
 
 export default function TermsOfService() {
+  const termsSchema = getPageSchema('terms');
+
   return (
     <div className="bg-dark min-h-screen">
+      <SEO
+        title="Terms of Service"
+        description="PastorBot's terms of service outline the conditions for using our AI-powered biblical assistant Discord bot, including usage guidelines and subscription terms."
+        canonical={`${SEO_CONFIG.siteUrl}/terms-of-service`}
+        image={SEO_CONFIG.ogImage}
+        type="article"
+        schema={termsSchema}
+      />
+
       <div className="max-w-4xl mx-auto px-4 py-16">
         <Link to="/" className="inline-flex items-center text-primary-500 hover:text-primary-400 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home

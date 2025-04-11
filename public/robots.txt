@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Disallow success and cancel pages which aren't relevant for indexing
+Disallow: /success/
+Disallow: /cancel/
+Disallow: /payment-success/
+Disallow: /payment-cancelled/
+
+# Sitemap
+Sitemap: https://pastorbot.app/sitemap.xml

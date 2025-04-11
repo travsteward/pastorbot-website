@@ -1,10 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import SEO from '../utils/SEO';
+import { SEO_CONFIG, getPageSchema } from '../utils/seo-data';
 
 export default function PrivacyPolicy() {
+  const privacySchema = getPageSchema('privacy');
+
   return (
     <div className="bg-dark min-h-screen">
+      <SEO
+        title="Privacy Policy"
+        description="PastorBot's privacy policy outlines how we handle your personal data, including Discord user information, conversation data, and subscription details."
+        canonical={`${SEO_CONFIG.siteUrl}/privacy-policy`}
+        image={SEO_CONFIG.ogImage}
+        type="article"
+        schema={privacySchema}
+      />
+
       <div className="max-w-4xl mx-auto px-4 py-16">
         <Link to="/" className="inline-flex items-center text-primary-500 hover:text-primary-400 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home

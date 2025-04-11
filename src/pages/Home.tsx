@@ -12,6 +12,8 @@ import {
   Heart
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../utils/SEO';
+import { SEO_CONFIG, getPageSchema } from '../utils/seo-data';
 
 // Define your price IDs here
 const PRICE_IDS = {
@@ -85,6 +87,13 @@ const tiers = [
 export default function Home() {
   const [searchParams] = useSearchParams();
 
+  // Get homepage schemas from centralized config
+  const homeSchema = getPageSchema('home');
+  const faqSchema = getPageSchema('faq');
+
+  // Combine schemas for improved SEO
+  const combinedSchemas = [homeSchema, faqSchema];
+
   useEffect(() => {
     // Check for Discord ID in URL after OAuth
     const discordId = searchParams.get('discord_id');
@@ -105,6 +114,18 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-dark text-gray-400">
+      {/* Apply both schemas */}
+      {combinedSchemas.map((schema, index) => (
+        schema && <SEO
+          key={index}
+          title={SEO_CONFIG.defaultTitle}
+          description={SEO_CONFIG.description}
+          canonical={SEO_CONFIG.siteUrl}
+          image={SEO_CONFIG.ogImage}
+          schema={schema}
+        />
+      ))}
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-sm border-b border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
