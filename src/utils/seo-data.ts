@@ -5,10 +5,10 @@
 
 export const SEO_CONFIG = {
   titleTemplate: '%s | PastorBot',
-  defaultTitle: 'PastorBot - Biblical Scholarship for Everyone',
+  defaultTitle: 'The AI-Powered Biblical Assistant for Discord',
   description: 'PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI. Ask any question about Christianity and receive scholarly insights.',
   siteUrl: 'https://pastorbot.app', // Explicitly using non-www format
-  ogImage: '/images/pastorbot/pastorbot.png', // We'll use an existing image
+  ogImage: 'https://pastorbot.app/images/pastorbot/personas2.png', // Use absolute URL for personas2 image
   twitter: {
     cardType: 'summary_large_image',
     handle: '@pastorbot', // Replace with actual Twitter handle if available

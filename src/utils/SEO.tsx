@@ -45,6 +45,8 @@ const SEO = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
+      <meta property="og:image:width" content="1536" />
+      <meta property="og:image:height" content="1024" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
