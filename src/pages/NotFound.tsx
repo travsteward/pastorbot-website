@@ -10,7 +10,8 @@ export default function NotFound() {
       <SEO
         title="Page Not Found"
         description="The page you're looking for doesn't exist. Return to the PastorBot homepage to explore our AI-powered biblical assistant for Discord."
-        path="404"
+        canonical="https://pastorbot.app/404"
+        noindex={true}
         image={SEO_CONFIG.ogImage}
       />
 

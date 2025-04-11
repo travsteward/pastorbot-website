@@ -12,7 +12,7 @@ export default function TermsOfService() {
       <SEO
         title="Terms of Service"
         description="PastorBot's terms of service outline the conditions for using our AI-powered biblical assistant Discord bot, including usage guidelines and subscription terms."
-        path="terms-of-service"
+        canonical="https://pastorbot.app/terms-of-service"
         image={SEO_CONFIG.ogImage}
         type="article"
         schema={termsSchema}

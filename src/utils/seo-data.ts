@@ -23,20 +23,16 @@ export const SEO_CONFIG = {
 
 // URL canonicalization helper function
 export const getCanonicalUrl = (path: string) => {
-  // Remove trailing slash for pages, but keep for directories
-  const cleanPath = path.endsWith('/') && path !== '/'
-    ? path.slice(0, -1)
-    : path;
+  // Simple absolute URL formation without modifying the path
+  // This prevents potential redirect loops from path manipulation
+  if (path.startsWith('http')) {
+    return path; // If it's already an absolute URL, don't modify it
+  }
 
-  // Ensure path starts with slash if not empty
-  const formattedPath = cleanPath !== '/' && !cleanPath.startsWith('/')
-    ? `/${cleanPath}`
-    : cleanPath;
+  // Ensure path starts with slash
+  const formattedPath = path.startsWith('/') ? path : `/${path}`;
 
-  // For root path, don't add an extra slash
-  return formattedPath === '/'
-    ? `${SEO_CONFIG.siteUrl}`
-    : `${SEO_CONFIG.siteUrl}${formattedPath}`;
+  return `${SEO_CONFIG.siteUrl}${formattedPath}`;
 };
 
 /**

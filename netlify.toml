@@ -3,21 +3,15 @@
   publish = "dist"
   functions = "netlify/functions"
 
-# Critical OAuth redirect - must be first
+# Only keep essential redirects
+# Critical OAuth redirect for authentication
 [[redirects]]
   from = "/oauth/*"
   to = "/.netlify/functions/callback"
   status = 200
   force = true
 
-# Simple canonicalization rule - handles www and trailing slashes in one rule
-[[redirects]]
-  from = "https://www.pastorbot.app/*"
-  to = "https://pastorbot.app/:splat"
-  status = 301
-  force = true
-
-# SPA fallback - must be last
+# SPA fallback for React routing
 [[redirects]]
   from = "/*"
   to = "/index.html"

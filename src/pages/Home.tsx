@@ -120,7 +120,7 @@ export default function Home() {
           key={index}
           title={SEO_CONFIG.defaultTitle}
           description={SEO_CONFIG.description}
-          path="/"
+          canonical="https://pastorbot.app"
           image={SEO_CONFIG.ogImage}
           schema={schema}
         />
