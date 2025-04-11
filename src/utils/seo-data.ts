@@ -7,7 +7,7 @@ export const SEO_CONFIG = {
   titleTemplate: '%s | PastorBot',
   defaultTitle: 'PastorBot - Biblical Scholarship for Everyone',
   description: 'PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI. Ask any question about Christianity and receive scholarly insights.',
-  siteUrl: 'https://pastorbot.app',
+  siteUrl: 'https://pastorbot.app', // Explicitly using non-www format
   ogImage: '/images/pastorbot/pastorbot.png', // We'll use an existing image
   twitter: {
     cardType: 'summary_large_image',
@@ -19,6 +19,24 @@ export const SEO_CONFIG = {
       content: 'discord bot, bible study, theological ai, biblical scholarship, pastor bot, bible bot, ai bible assistant, seminary, theological analysis, scripture study',
     },
   ],
+};
+
+// URL canonicalization helper function
+export const getCanonicalUrl = (path: string) => {
+  // Remove trailing slash for pages, but keep for directories
+  const cleanPath = path.endsWith('/') && path !== '/'
+    ? path.slice(0, -1)
+    : path;
+
+  // Ensure path starts with slash if not empty
+  const formattedPath = cleanPath !== '/' && !cleanPath.startsWith('/')
+    ? `/${cleanPath}`
+    : cleanPath;
+
+  // For root path, don't add an extra slash
+  return formattedPath === '/'
+    ? `${SEO_CONFIG.siteUrl}`
+    : `${SEO_CONFIG.siteUrl}${formattedPath}`;
 };
 
 /**

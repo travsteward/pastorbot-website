@@ -120,7 +120,7 @@ export default function Home() {
           key={index}
           title={SEO_CONFIG.defaultTitle}
           description={SEO_CONFIG.description}
-          canonical={SEO_CONFIG.siteUrl}
+          path="/"
           image={SEO_CONFIG.ogImage}
           schema={schema}
         />

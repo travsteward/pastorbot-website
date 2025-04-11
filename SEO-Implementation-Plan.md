@@ -21,10 +21,19 @@
 
 ### 3. Technical SEO Elements
 - Created sitemap.xml with proper URL hierarchy and priorities
+  - Excluded legal and policy pages from sitemap for consistency with noindex directives
+  - Included only indexable, user-valuable content
 - Implemented robots.txt with appropriate crawl directives
+  - Excluded legal pages (privacy policy, terms of service) from indexing
+  - Excluded transactional pages (success, cancel) from indexing
 - Added 404 page with SEO metadata
 - Created web app manifest for PWA capabilities
 - Set correct language attribute in HTML tag
+- Implemented URL canonicalization:
+  - Non-www format (https://pastorbot.app)
+  - No trailing slashes for pages
+  - Enforced via redirects and canonical tags
+- Applied noindex meta tags to legal pages as a secondary measure
 
 ### 4. Content Optimization
 - Optimized headings with H1-H6 hierarchy
@@ -55,6 +64,9 @@
 
 ### 4. Analytics and Monitoring
 - Implement Google Analytics 4 and Search Console
+  - Use Domain property for comprehensive coverage
+  - Submit sitemap via Search Console
+  - Set up performance monitoring for core pages
 - Add structured event tracking for user interactions
 - Create SEO dashboard for key metrics
 - Implement regular crawl error monitoring

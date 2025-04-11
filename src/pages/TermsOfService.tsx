@@ -12,10 +12,11 @@ export default function TermsOfService() {
       <SEO
         title="Terms of Service"
         description="PastorBot's terms of service outline the conditions for using our AI-powered biblical assistant Discord bot, including usage guidelines and subscription terms."
-        canonical={`${SEO_CONFIG.siteUrl}/terms-of-service`}
+        path="terms-of-service"
         image={SEO_CONFIG.ogImage}
         type="article"
         schema={termsSchema}
+        noindex={true}
       />
 
       <div className="max-w-4xl mx-auto px-4 py-16">

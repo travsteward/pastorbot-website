@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
 
+# Legal pages excluded from indexing
+Disallow: /privacy-policy
+Disallow: /terms-of-service
+
 # Disallow success and cancel pages which aren't relevant for indexing
 Disallow: /success/
 Disallow: /cancel/

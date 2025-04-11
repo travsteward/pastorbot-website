@@ -12,10 +12,11 @@ export default function PrivacyPolicy() {
       <SEO
         title="Privacy Policy"
         description="PastorBot's privacy policy outlines how we handle your personal data, including Discord user information, conversation data, and subscription details."
-        canonical={`${SEO_CONFIG.siteUrl}/privacy-policy`}
+        path="privacy-policy"
         image={SEO_CONFIG.ogImage}
         type="article"
         schema={privacySchema}
+        noindex={true}
       />
 
       <div className="max-w-4xl mx-auto px-4 py-16">
