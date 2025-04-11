@@ -3,15 +3,13 @@
   publish = "dist"
   functions = "netlify/functions"
 
-# Only keep essential redirects
-# Critical OAuth redirect for authentication
+# Only the essential function proxy redirect
 [[redirects]]
   from = "/oauth/*"
   to = "/.netlify/functions/callback"
   status = 200
-  force = true
 
-# SPA fallback for React routing
+# SPA fallback with status 200 only, no force parameter
 [[redirects]]
   from = "/*"
   to = "/index.html"

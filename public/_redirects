@@ -1,10 +1,7 @@
-# Redirect www to non-www
-https://www.pastorbot.app/* https://pastorbot.app/:splat 301!
+# Disable any unwanted redirects and define only the essential ones
 
-# Remove trailing slashes from all pages except root
-https://pastorbot.app/*/ https://pastorbot.app/:splat 301!
+# OAuth redirect - directly to the function
+/oauth/*  /.netlify/functions/callback  200
 
-# Handle SPA routing (keep this as the last rule)
-/* /index.html 200
-
-/oauth/discord/callback /.netlify/functions/callback 200
+# SPA fallback
+/*  /index.html  200
