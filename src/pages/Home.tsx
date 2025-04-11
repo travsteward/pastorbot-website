@@ -144,13 +144,14 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="relative pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
-                The AI-Powered Biblical Assistant
+              <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
+                <span className="whitespace-nowrap">The AI-Powered</span><br />
+                <span className="whitespace-nowrap">Biblical Assistant</span>
                 <br />
-                <span className="gradient-text">for Discord</span>
+                <span className="gradient-text whitespace-nowrap">for Discord</span>
               </h1>
               <p className="text-xl mb-6 leading-relaxed">
                 The Bible is more accessible than ever - yet truly understanding Scripture remains locked behind significant barriers. Until now.
@@ -174,6 +175,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
+              <h3 className="text-white text-xl font-semibold mb-4 text-center lg:text-left">Example Interaction</h3>
               <div className="bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
                 <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -229,18 +231,18 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Features Grid - Replacing with Feature Showcase Sections */}
-      <div className="py-16 gradient-section">
+      {/* Features Grid - Reduce top padding */}
+      <div className="pt-12 pb-0 gradient-section border-t border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h2 className="text-4xl font-bold text-white mb-4">Biblical Knowledge at Your Fingertips</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI.
             </p>
           </div>
 
-          {/* Feature 1: Rich Bible Studies (formerly Daily Bread) */}
-          <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
+          {/* Feature 1: Rich Bible Studies - Reduce bottom margin */}
+          <div className="mb-8 flex flex-col lg:flex-row items-start gap-0 lg:gap-12">
             <div className="lg:w-1/2">
               <h3 className="text-3xl font-semibold text-white mb-4">Rich Bible Studies</h3>
 
@@ -249,6 +251,9 @@ export default function Home() {
                 Each study provides meaningful background to help you understand scripture
                 as it was understood in its time, complete with professional-quality audio.
               </p>
+
+              {/* Add heading for scripture passage */}
+              <h4 className="text-white text-lg font-semibold mb-3">Example Bible Study Passage</h4>
 
               {/* Scripture Card moved below paragraph */}
               <div className="border-l-4 border-primary-500 pl-4 py-1 mb-6 bg-dark-card/40 rounded-r-lg">
@@ -264,46 +269,58 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
+              {/* Heading for audio on small screens (below passage) - Revert top margin */}
+              <h4 className="text-white text-lg font-semibold mb-3 mt-6 lg:hidden">Example Bible Study Audio</h4>
+
             </div>
-            <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
-              <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
-                  <span className="text-white font-medium">PastorBot</span>
-                </div>
-                <span className="text-gray-500 text-xs">Today at 9:00 AM</span>
-              </div>
-
-              <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
-                {/* Audio attachment cards with LISTEN label */}
-                <div>
-                  <div className="flex items-center gap-2 mb-5">
-                    <div className="text-base text-white font-bold py-1.5 px-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-lg shadow-md">
-                      PLAY AUDIO
-                    </div>
-                    <div className="flex-1 border-t border-primary-500/20"></div>
+            {/* Wrapper for right column to place heading above the card */}
+            <div className="lg:w-1/2 w-full">
+              {/* Heading for audio on large screens (above card) - Revert margin change */}
+              <h4 className="text-white text-lg font-semibold mb-3 hidden lg:block">Example Bible Study Audio</h4>
+              {/* Audio Card */}
+              <div className="bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+                {/* Removed the internal heading */}
+                <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
+                    <span className="text-white font-medium">PastorBot</span>
                   </div>
+                  <span className="text-gray-500 text-xs">Today at 9:00 AM</span>
+                </div>
 
-                  <div className="space-y-4">
-                    <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md hover:bg-dark/60 transition-colors duration-200">
-                      <div className="p-4 flex items-center gap-4 border-b border-dark-border/50">
-                        <div className="bg-primary-500/15 p-3 rounded-lg flex-shrink-0">
-                          <Book className="w-5 h-5 text-primary-400" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2">
-                            <h6 className="text-white font-medium text-sm">Historical Background</h6>
-                            <Volume2 className="w-4 h-4 text-primary-400/70" />
-                          </div>
-                          <p className="text-xs text-gray-400">Learn the cultural context behind Jesus' words</p>
-                        </div>
+                {/* Revert padding-top change */}
+                <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
+                  {/* Audio attachment cards with LISTEN label */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-5">
+                      <div className="text-base text-white font-bold py-1.5 px-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-lg shadow-md">
+                        PLAY AUDIO
                       </div>
-                      <div className="px-4 py-3 bg-dark/30">
-                        <audio controls className="w-full h-12 rounded" preload="none">
-                          <source src="/audio/daily-bread/backstory_1740331021.mp3" type="audio/mpeg" />
-                          Your browser does not support the audio element.
-                        </audio>
-                        <p className="text-xs text-gray-500 text-center pt-2">Click the play button above to listen</p>
+                      <div className="flex-1 border-t border-primary-500/20"></div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md hover:bg-dark/60 transition-colors duration-200">
+                        <div className="p-4 flex items-center gap-4 border-b border-dark-border/50">
+                          <div className="bg-primary-500/15 p-3 rounded-lg flex-shrink-0">
+                            <Book className="w-5 h-5 text-primary-400" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <h6 className="text-white font-medium text-sm">Historical Background</h6>
+                              <Volume2 className="w-4 h-4 text-primary-400/70" />
+                            </div>
+                            <p className="text-xs text-gray-400">Learn the cultural context behind Jesus' words</p>
+                          </div>
+                        </div>
+                        <div className="px-4 py-3 bg-dark/30">
+                          <audio controls className="w-full h-12 rounded" preload="none">
+                            <source src="/audio/daily-bread/backstory_1740331021.mp3" type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                          </audio>
+                          <p className="text-xs text-gray-500 text-center pt-2">Click the play button above to listen</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -312,11 +329,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* New Feature: Interactive Voice and Audio */}
-          <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
+          {/* New Feature: Interactive Voice and Audio - Reduce top padding */}
+          <div className="mb-12 flex flex-col-reverse lg:flex-row items-center gap-12 border-t border-dark-border pt-8">
             <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
               <div className="bg-dark border-b border-dark-border p-0">
                 <img src="/images/pastorbot/pastorbot_voice1.png" alt="PastorBot in Discord Voice Channel" className="w-full" />
+                <p className="text-center text-sm text-gray-500 py-3 px-2 bg-dark/70">PastorBot can join and speak in voice channels</p>
               </div>
             </div>
             <div className="lg:w-1/2">
@@ -352,16 +370,18 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature 2: Deep Theology (New section) */}
-          <div className="mb-24 flex flex-col lg:flex-row items-center gap-12">
+          {/* Feature 2: Deep Theology & Exegesis - Reduce top padding */}
+          <div className="mb-12 flex flex-col lg:flex-row items-start gap-0 lg:gap-12 border-t border-dark-border pt-8">
             <div className="lg:w-1/2">
               <h3 className="text-3xl font-semibold text-white mb-4">Deep Theology</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Dive into seminary-level theological analysis that explores the deeper layers of scripture.
-                Each passage is examined through rigorous scholarly exegesis, providing insights into
-                theological principles, literary structure, and interpretive frameworks.
+                Uncover the profound meaning behind scripture with in-depth theological analysis.
+                PastorBot provides scholarly exegesis, connecting passages to broader biblical themes,
+                historical context, and diverse theological traditions, all voiced for easy listening.
               </p>
-              <ul className="space-y-3">
+
+              {/* Re-add bullet points */}
+              <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-400">Rigorous academic interpretation of scripture</span>
@@ -379,45 +399,54 @@ export default function Home() {
                   <span className="text-gray-400">Textual criticism and interpretive methods</span>
                 </li>
               </ul>
+
+              {/* Add heading for audio on small screens */}
+              <h4 className="text-white text-lg font-semibold mb-3 mt-6 lg:hidden">Example Exegesis Audio</h4>
             </div>
-            <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
-              <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
-                  <span className="text-white font-medium">PastorBot</span>
-                </div>
-                <span className="text-gray-500 text-xs">Today at 10:30 AM</span>
-              </div>
-
-              <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
-                <div>
-                  <div className="flex items-center gap-2 mb-5">
-                    <div className="text-base text-white font-bold py-1.5 px-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-lg shadow-md">
-                      PLAY AUDIO
-                    </div>
-                    <div className="flex-1 border-t border-primary-500/20"></div>
+            {/* Wrapper for right column */}
+            <div className="lg:w-1/2 w-full">
+              {/* Add heading for audio on large screens */}
+              <h4 className="text-white text-lg font-semibold mb-3 hidden lg:block">Example Exegesis Audio</h4>
+              {/* Card for Exegesis Audio */}
+              <div className="bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+                <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
+                    <span className="text-white font-medium">PastorBot</span>
                   </div>
+                  <span className="text-gray-500 text-xs">Today at 10:30 AM</span>
+                </div>
 
-                  <div className="space-y-4">
-                    <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md hover:bg-dark/60 transition-colors duration-200">
-                      <div className="p-4 flex items-center gap-4 border-b border-dark-border/50">
-                        <div className="bg-primary-500/15 p-3 rounded-lg flex-shrink-0">
-                          <ScrollText className="w-5 h-5 text-primary-400" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2">
-                            <h6 className="text-white font-medium text-sm">Scholarly Exegesis</h6>
-                            <Volume2 className="w-4 h-4 text-primary-400/70" />
-                          </div>
-                          <p className="text-xs text-gray-400">Academic interpretation and analysis</p>
-                        </div>
+                <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
+                  <div>
+                    <div className="flex items-center gap-2 mb-5">
+                      <div className="text-base text-white font-bold py-1.5 px-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-lg shadow-md">
+                        PLAY AUDIO
                       </div>
-                      <div className="px-4 py-3 bg-dark/30">
-                        <audio controls className="w-full h-12 rounded" preload="none">
-                          <source src="/audio/daily-bread/exegesis_1740331021.mp3" type="audio/mpeg" />
-                          Your browser does not support the audio element.
-                        </audio>
-                        <p className="text-xs text-gray-500 text-center pt-2">Click the play button above to listen</p>
+                      <div className="flex-1 border-t border-primary-500/20"></div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md hover:bg-dark/60 transition-colors duration-200">
+                        <div className="p-4 flex items-center gap-4 border-b border-dark-border/50">
+                          <div className="bg-primary-500/15 p-3 rounded-lg flex-shrink-0">
+                            <ScrollText className="w-5 h-5 text-primary-400" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2">
+                              <h6 className="text-white font-medium text-sm">Scholarly Exegesis</h6>
+                              <Volume2 className="w-4 h-4 text-primary-400/70" />
+                            </div>
+                            <p className="text-xs text-gray-400">Academic interpretation and analysis</p>
+                          </div>
+                        </div>
+                        <div className="px-4 py-3 bg-dark/30">
+                          <audio controls className="w-full h-12 rounded" preload="none">
+                            <source src="/audio/daily-bread/exegesis_1740331021.mp3" type="audio/mpeg" />
+                            Your browser does not support the audio element.
+                          </audio>
+                          <p className="text-xs text-gray-500 text-center pt-2">Click the play button above to listen</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -426,59 +455,59 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature 3: Scholarly Insights (renamed from Scholarly Biblical Conversations) */}
-          <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
-              <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
-                  <span className="text-white font-medium">PastorBot</span>
-                </div>
-                <span className="text-gray-500 text-xs">Today at 2:45 PM</span>
-              </div>
-              <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
-                <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
-                    <Users className="w-5 h-5 text-blue-400" />
+          {/* Feature 3: Scholarly Insights - Reduce top padding */}
+          <div className="mb-12 flex flex-col-reverse lg:flex-row items-start gap-0 lg:gap-12 border-t border-dark-border pt-8">
+            {/* Left column (chat example) */}
+            <div className="lg:w-1/2 w-full">
+              {/* Add heading above chat example */}
+              <h4 className="text-white text-lg font-semibold mb-3">Example Scholarly Insight</h4>
+              <div className="bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
+                <div className="bg-dark/70 border-b border-primary-500/30 px-5 py-4 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-7 h-7 rounded-full border border-primary-500/30" />
+                    <span className="text-white font-medium">PastorBot</span>
                   </div>
-                  <div className="flex-1">
-                    <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
-                      <p className="text-gray-300 text-sm">Pastor, is "God helps those who help themselves" in the Bible? I hear it quoted all the time.</p>
+                  <span className="text-gray-500 text-xs">Today at 2:45 PM</span>
+                </div>
+                <div className="p-5 space-y-5 bg-gradient-to-b from-dark-card to-dark-card/80">
+                  <div className="flex items-start gap-4">
+                    <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
+                      <Users className="w-5 h-5 text-blue-400" />
                     </div>
-                    <div className="text-xs text-gray-500 mt-1.5 ml-1">2:45 PM</div>
+                    <div className="flex-1">
+                      <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
+                        <p className="text-gray-300 text-sm">Pastor, is "God helps those who help themselves" in the Bible? I hear it quoted all the time.</p>
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1.5 ml-1">2:45 PM</div>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-9 h-9 rounded-full flex-shrink-0 mt-1 border border-primary-500/20 shadow-sm" />
-                  <div className="flex-1">
-                    <div className="bg-dark/50 p-4 rounded-lg border border-primary-500/10 shadow-sm">
-                      <p className="text-gray-300 text-sm mb-3">This phrase isn't found in scripture. It originates from Benjamin Franklin's "Poor Richard's Almanack" (1736) and reflects Enlightenment thinking.</p>
-                      <p className="text-gray-300 text-sm">The Bible teaches the opposite - God helping the helpless. In Romans 5:8, <span className="text-primary-400">"While we were still sinners, Christ died for us."</span> Salvation is God's initiative, not our effort (Ephesians 2:8-9).</p>
+                  <div className="flex items-start gap-4">
+                    <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-9 h-9 rounded-full flex-shrink-0 mt-1 border border-primary-500/20 shadow-sm" />
+                    <div className="flex-1">
+                      <div className="bg-dark/50 p-4 rounded-lg border border-primary-500/10 shadow-sm">
+                        <p className="text-gray-300 text-sm mb-3">This phrase isn't found in scripture. It originates from Benjamin Franklin's "Poor Richard's Almanack" (1736) and reflects Enlightenment thinking.</p>
+                        <p className="text-gray-300 text-sm">The Bible teaches the opposite - God helping the helpless. In Romans 5:8, <span className="text-primary-400">"While we were still sinners, Christ died for us."</span> Salvation is God's initiative, not our effort (Ephesians 2:8-9).</p>
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1.5 ml-1">2:47 PM</div>
                     </div>
-                    <div className="text-xs text-gray-500 mt-1.5 ml-1">2:47 PM</div>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
-                    <Users className="w-5 h-5 text-blue-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
-                      <p className="text-gray-300 text-sm">Wow, I had no idea! Are there other common "biblical" sayings that aren't actually in the Bible?</p>
+                  <div className="flex items-start gap-4">
+                    <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
+                      <Users className="w-5 h-5 text-blue-400" />
                     </div>
-                    <div className="text-xs text-gray-500 mt-1.5 ml-1">2:48 PM</div>
+                    <div className="flex-1">
+                      <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
+                        <p className="text-gray-300 text-sm">Wow, I had no idea! Are there other common "biblical" sayings that aren't actually in the Bible?</p>
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1.5 ml-1">2:48 PM</div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="bg-dark/80 border-t border-primary-500/20 p-4">
-                <div className="bg-dark/70 rounded-full px-5 py-2.5 text-gray-400 text-sm border border-primary-500/10 shadow-inner flex items-center gap-2">
-                  <span className="text-primary-400 text-xs">→</span>
-                  Ask a theological question...
                 </div>
               </div>
             </div>
+            {/* Right column (explanation) */}
             <div className="lg:w-1/2">
               <h3 className="text-3xl font-semibold text-white mb-5">Scholarly Insights</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
@@ -515,10 +544,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature 4: Multiple Personas (renamed from Multiple Theological Perspectives) */}
-          <div className="mb-24 flex flex-col-reverse lg:flex-row-reverse items-center gap-12">
+          {/* Feature 4: Multiple Personas - Reduce top padding */}
+          <div className="mb-12 flex flex-col-reverse lg:flex-row-reverse items-center gap-12 border-t border-dark-border pt-8">
             <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
-              <div className="p-6">
+              <div className="p-0">
                 <img src="/images/pastorbot/personas2.png" alt="Christian Thinkers Through History" className="w-full rounded-lg shadow-md" />
               </div>
             </div>
@@ -534,7 +563,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Various denominational perspectives (Catholic, Orthodox, Protestant)</span>
+                  <span className="text-gray-400">Various denominational perspectives (Catholic, Anglican, Mennonite)</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
@@ -550,11 +579,13 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Impact Section */}
-      <div className="py-16 gradient-section">
+      {/* Impact Section - Reduce top padding */}
+      <div className="pt-12 pb-8 gradient-section border-t border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-white mb-4">The Vision: A Biblical Knowledge Revolution</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              The Vision:<br /> A Biblical Knowledge Revolution
+            </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               By removing the bottleneck between people and biblical scholarship, we're enabling explosive growth in:
             </p>
@@ -573,8 +604,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Pricing Section */}
-      <div className="py-16">
+      {/* Pricing Section - Reduce top padding */}
+      <div className="pt-6 pb-8 border-t border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-block px-4 py-2 rounded-full bg-primary-500/10 text-primary-500 font-semibold text-sm mb-4">
@@ -610,8 +641,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-dark-border">
+      {/* Footer - Reduce top padding */}
+      <footer className="pt-8 pb-12 border-t border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
             <p className="text-lg text-gray-400">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
