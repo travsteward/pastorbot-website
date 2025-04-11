@@ -1,7 +1,9 @@
 # Disable any unwanted redirects and define only the essential ones
 
-# OAuth redirect - directly to the function
+# Netlify redirect rules - processed in order
+
+# Proxy API requests to serverless functions
 /oauth/*  /.netlify/functions/callback  200
 
-# SPA fallback
+# SPA fallback - must be last
 /*  /index.html  200

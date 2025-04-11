@@ -3,14 +3,10 @@
   publish = "dist"
   functions = "netlify/functions"
 
-# Only the essential function proxy redirect
-[[redirects]]
-  from = "/oauth/*"
-  to = "/.netlify/functions/callback"
-  status = 200
-
-# SPA fallback with status 200 only, no force parameter
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Configure cache headers to help prevent redirect caching issues
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma = "no-cache"
+    Expires = "0"
