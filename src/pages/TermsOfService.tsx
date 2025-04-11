@@ -68,7 +68,7 @@ export default function TermsOfService() {
           <ul className="list-disc pl-5 mb-4 text-gray-400">
             <li><strong>Free Tier:</strong> Limited access to PastorBot features</li>
             <li><strong>Discipleship Tier ($2.99/month):</strong> Premium individual access</li>
-            <li><strong>Ministry Tier ($24.99/month):</strong> Server-wide premium access</li>
+            <li><strong>Ministry Tier ($12.99/month):</strong> Server-wide premium access</li>
           </ul>
 
           <h3 className="text-lg font-medium mb-2 text-white">4.2 Payment</h3>

@@ -73,7 +73,7 @@ const tiers = [
   },
   {
     name: "Ministry",
-    price: "$24.99/mo",
+    price: "$12.99/mo",
     priceId: PRICE_IDS.MINISTRY,
     features: [
       "SERVER-WIDE premium access for all members",

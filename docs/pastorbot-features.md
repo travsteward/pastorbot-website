@@ -21,7 +21,7 @@ Payments are now controlled through the Discord bot directly using the `/subscri
 - Conversational memory for in-depth discussions
 - Complete privacy for sensitive spiritual questions
 
-### Ministry Tier ($24.99/month, Server-Wide)
+### Ministry Tier ($12.99/month, Server-Wide)
 - SERVER-WIDE premium access for all members
 - All Discipleship tier features available to everyone in the server
 - Public, private, and discreet PastorBot access
