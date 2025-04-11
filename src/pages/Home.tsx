@@ -516,7 +516,7 @@ export default function Home() {
           </div>
 
           {/* Feature 4: Multiple Personas (renamed from Multiple Theological Perspectives) */}
-          <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
+          <div className="mb-24 flex flex-col-reverse lg:flex-row-reverse items-center gap-12">
             <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
               <div className="p-6">
                 <img src="/images/pastorbot/personas2.png" alt="Christian Thinkers Through History" className="w-full rounded-lg shadow-md" />
