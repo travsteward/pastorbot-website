@@ -9,7 +9,8 @@ import {
   ArrowRight,
   BookOpen,
   ScrollText,
-  Heart
+  Heart,
+  Volume2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../utils/SEO';
@@ -146,12 +147,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
                 The AI-Powered Biblical Assistant
                 <br />
                 <span className="gradient-text">for Discord</span>
               </h1>
-              <p className="text-xl mb-8 leading-relaxed">
+              <p className="text-xl mb-6 leading-relaxed">
                 The Bible is more accessible than ever - yet truly understanding Scripture remains locked behind significant barriers. Until now.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -278,19 +279,22 @@ export default function Home() {
                 <div>
                   <div className="flex items-center gap-2 mb-5">
                     <div className="text-base text-white font-bold py-1.5 px-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-lg shadow-md">
-                      LISTEN
+                      PLAY AUDIO
                     </div>
                     <div className="flex-1 border-t border-primary-500/20"></div>
                   </div>
 
                   <div className="space-y-4">
-                    <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md">
+                    <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md hover:bg-dark/60 transition-colors duration-200">
                       <div className="p-4 flex items-center gap-4 border-b border-dark-border/50">
                         <div className="bg-primary-500/15 p-3 rounded-lg flex-shrink-0">
                           <Book className="w-5 h-5 text-primary-400" />
                         </div>
                         <div className="flex-1">
-                          <h6 className="text-white font-medium text-sm">Historical Background</h6>
+                          <div className="flex items-center gap-2">
+                            <h6 className="text-white font-medium text-sm">Historical Background</h6>
+                            <Volume2 className="w-4 h-4 text-primary-400/70" />
+                          </div>
                           <p className="text-xs text-gray-400">Learn the cultural context behind Jesus' words</p>
                         </div>
                       </div>
@@ -299,22 +303,7 @@ export default function Home() {
                           <source src="/audio/daily-bread/backstory_1740331021.mp3" type="audio/mpeg" />
                           Your browser does not support the audio element.
                         </audio>
-                      </div>
-                    </div>
-
-                    {/* Discord reactions */}
-                    <div className="flex items-center gap-2 pt-1">
-                      <div className="bg-dark/40 p-1.5 px-3 rounded-lg flex items-center gap-1.5 text-xs cursor-pointer hover:bg-dark-card/80 border border-dark-border/50">
-                        <span className="text-yellow-500">✨</span>
-                        <span className="text-gray-400">12</span>
-                      </div>
-                      <div className="bg-dark/40 p-1.5 px-3 rounded-lg flex items-center gap-1.5 text-xs cursor-pointer hover:bg-dark-card/80 border border-dark-border/50">
-                        <span className="text-red-500">❤️</span>
-                        <span className="text-gray-400">8</span>
-                      </div>
-                      <div className="bg-dark/40 p-1.5 px-3 rounded-lg flex items-center gap-1.5 text-xs cursor-pointer hover:bg-dark-card/80 border border-dark-border/50">
-                        <span className="text-primary-500">🙏</span>
-                        <span className="text-gray-400">24</span>
+                        <p className="text-xs text-gray-500 text-center pt-2">Click the play button above to listen</p>
                       </div>
                     </div>
                   </div>
@@ -404,19 +393,22 @@ export default function Home() {
                 <div>
                   <div className="flex items-center gap-2 mb-5">
                     <div className="text-base text-white font-bold py-1.5 px-4 bg-gradient-to-r from-primary-600 to-primary-500 rounded-lg shadow-md">
-                      LEARN
+                      PLAY AUDIO
                     </div>
                     <div className="flex-1 border-t border-primary-500/20"></div>
                   </div>
 
                   <div className="space-y-4">
-                    <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md">
+                    <div className="bg-dark/40 rounded-xl overflow-hidden border border-primary-500/20 shadow-md hover:bg-dark/60 transition-colors duration-200">
                       <div className="p-4 flex items-center gap-4 border-b border-dark-border/50">
                         <div className="bg-primary-500/15 p-3 rounded-lg flex-shrink-0">
                           <ScrollText className="w-5 h-5 text-primary-400" />
                         </div>
                         <div className="flex-1">
-                          <h6 className="text-white font-medium text-sm">Scholarly Exegesis</h6>
+                          <div className="flex items-center gap-2">
+                            <h6 className="text-white font-medium text-sm">Scholarly Exegesis</h6>
+                            <Volume2 className="w-4 h-4 text-primary-400/70" />
+                          </div>
                           <p className="text-xs text-gray-400">Academic interpretation and analysis</p>
                         </div>
                       </div>
@@ -425,13 +417,14 @@ export default function Home() {
                           <source src="/audio/daily-bread/exegesis_1740331021.mp3" type="audio/mpeg" />
                           Your browser does not support the audio element.
                         </audio>
+                        <p className="text-xs text-gray-500 text-center pt-2">Click the play button above to listen</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                        </div>
-                        </div>
-                      </div>
+              </div>
+            </div>
+          </div>
 
           {/* Feature 3: Scholarly Insights (renamed from Scholarly Biblical Conversations) */}
           <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
@@ -447,7 +440,7 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="w-9 h-9 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-blue-500/20 shadow-sm">
                     <Users className="w-5 h-5 text-blue-400" />
-                      </div>
+                  </div>
                   <div className="flex-1">
                     <div className="bg-dark/50 p-4 rounded-lg border border-blue-500/10 shadow-sm">
                       <p className="text-gray-300 text-sm">Pastor, is "God helps those who help themselves" in the Bible? I hear it quoted all the time.</p>
@@ -501,7 +494,7 @@ export default function Home() {
                 Whether you're curious about biblical interpretation, church history, or theological concepts, PastorBot provides thoughtful, nuanced answers that respect both scholarship and faith.
               </p>
 
-              <ul className="space-y-4 mb-4">
+              <ul className="space-y-4 mb-6">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-400">Public channel interactions - just start with "Pastor"</span>
@@ -523,7 +516,7 @@ export default function Home() {
           </div>
 
           {/* Feature 4: Multiple Personas (renamed from Multiple Theological Perspectives) */}
-          <div className="mb-12 flex flex-col-reverse lg:flex-row items-center gap-12">
+          <div className="mb-24 flex flex-col-reverse lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 bg-dark-card border border-primary-500/20 rounded-xl overflow-hidden shadow-lg shadow-primary-500/5">
               <div className="p-6">
                 <img src="/images/pastorbot/personas2.png" alt="Christian Thinkers Through History" className="w-full rounded-lg shadow-md" />
@@ -531,7 +524,7 @@ export default function Home() {
             </div>
             <div className="lg:w-1/2">
               <h3 className="text-3xl font-semibold text-white mb-4">Multiple Personas</h3>
-              <p className="text-gray-400 leading-relaxed mb-4">
+              <p className="text-gray-400 leading-relaxed mb-6">
                 Engage with biblical content through the lens of influential Christian thinkers throughout history. Learn from the perspectives of theological giants like C.S. Lewis and others who have shaped Christian thought.
               </p>
               <ul className="space-y-3">
@@ -588,7 +581,7 @@ export default function Home() {
               Pricing
             </div>
             <h2 className="text-4xl font-bold text-white mb-4">Ready to Transform Your Community?</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-6">
               Add PastorBot to your server for free and experience premium features through the <code>/subscription</code> command directly in Discord.
             </p>
           </div>
@@ -597,7 +590,7 @@ export default function Home() {
               <div key={index} className="gradient-card rounded-xl p-8">
                 <h3 className="text-2xl font-bold text-white mb-4">{tier.name}</h3>
                 <p className="text-4xl font-bold text-primary-500 mb-8">{tier.price}</p>
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-4 mb-6">
                   {tier.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0" />
@@ -624,7 +617,7 @@ export default function Home() {
             <p className="text-lg text-gray-400">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-x-4 gap-y-2">
             <Link to="/privacy-policy" className="text-primary-500 hover:text-primary-400 text-sm">
               Privacy Policy
             </Link>
