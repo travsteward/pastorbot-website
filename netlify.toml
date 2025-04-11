@@ -3,27 +3,21 @@
   publish = "dist"
   functions = "netlify/functions"
 
+# Critical OAuth redirect - must be first
 [[redirects]]
   from = "/oauth/*"
   to = "/.netlify/functions/callback"
   status = 200
   force = true
 
-# Fix for canonicalization - redirect www to non-www
+# Simple canonicalization rule - handles www and trailing slashes in one rule
 [[redirects]]
   from = "https://www.pastorbot.app/*"
   to = "https://pastorbot.app/:splat"
   status = 301
   force = true
 
-# Add this rule to prevent loops with trailing slashes
-[[redirects]]
-  from = "/*/"
-  to = "/:splat"
-  status = 301
-  force = true
-
-# This must be the last redirect rule
+# SPA fallback - must be last
 [[redirects]]
   from = "/*"
   to = "/index.html"
