@@ -148,10 +148,10 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
-                <span className="whitespace-nowrap">The AI-Powered</span><br />
-                <span className="whitespace-nowrap">Biblical Assistant</span>
+                <span>Seminary Level</span><br />
+                <span>Group Bible Studies</span>
                 <br />
-                <span className="gradient-text whitespace-nowrap">for Discord</span>
+                <span className="gradient-text">For Discord</span>
               </h1>
               <p className="text-xl mb-6 leading-relaxed">
                 The Bible is more accessible than ever - yet truly understanding Scripture remains locked behind significant barriers. Until now.
