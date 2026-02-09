@@ -17,7 +17,7 @@ const SEO = ({
   description = 'Add PastorBot to your Discord server for daily lectionary Bible studies, voice-guided lessons, AI pastoral conversations, and weekly group studies. Free to start.',
   canonical,
   path,
-  image = '/images/pastorbot/pastorbot.png',
+  image = '/images/logo/pastorbot-avatar.png',
   type = 'website',
   schema,
   noindex = false

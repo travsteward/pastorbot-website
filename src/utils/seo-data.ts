@@ -8,7 +8,7 @@ export const SEO_CONFIG = {
   defaultTitle: 'PastorBot — AI Bible Study Bot for Discord | Daily Verses, Voice & Pastor Chat',
   description: 'Add PastorBot to your Discord server for daily lectionary Bible studies, voice-guided lessons, AI pastoral conversations, and weekly group studies. Free to start.',
   siteUrl: 'https://pastorbot.app', // Explicitly using non-www format
-  ogImage: 'https://pastorbot.app/images/pastorbot/personas2.png', // Use absolute URL for personas2 image
+  ogImage: 'https://pastorbot.app/images/personas/personas-grid.png',
   twitter: {
     cardType: 'summary_large_image',
     handle: '@pastorbot', // Replace with actual Twitter handle if available
@@ -167,6 +167,13 @@ export const getPageSchema = (page: string) => {
       "@type": "WebPage",
       "name": "Terms of Service",
       "description": "PastorBot's terms of service outline the conditions for using our AI-powered biblical assistant Discord bot."
+    },
+    blog: {
+      ...baseSchema,
+      "@type": "Blog",
+      "name": "PastorBot Blog",
+      "description": "Bible study tips, Discord bot guides, and theological insights from the PastorBot team.",
+      "url": `${SEO_CONFIG.siteUrl}/blog`
     }
   };
 

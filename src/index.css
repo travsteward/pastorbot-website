@@ -73,6 +73,15 @@
   }
 }
 
+@keyframes waveform-pulse {
+  0% {
+    transform: scaleY(0.85);
+  }
+  100% {
+    transform: scaleY(1.15);
+  }
+}
+
 .feature-gradient {
   background: linear-gradient(
     145deg,

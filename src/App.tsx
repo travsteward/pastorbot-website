@@ -7,6 +7,8 @@ import PaymentSuccess from './pages/PaymentSuccess';
 import PaymentCancelled from './pages/PaymentCancelled';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import BlogList from './pages/BlogList';
+import BlogPost from './pages/BlogPost';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <Route path="/cancel" element={<Cancel />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
