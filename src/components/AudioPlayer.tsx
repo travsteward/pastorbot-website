@@ -84,7 +84,7 @@ export default function AudioPlayer({ src, title, subtitle }: AudioPlayerProps) 
   };
 
   return (
-    <div className="rounded-xl overflow-hidden border border-white/10 bg-[#1a1a2e] p-5">
+    <div className="rounded-xl overflow-hidden border border-white/10 bg-[#1a1a2e] p-3 sm:p-5">
       <audio
         ref={audioRef}
         src={src}
@@ -94,29 +94,29 @@ export default function AudioPlayer({ src, title, subtitle }: AudioPlayerProps) 
       />
 
       {/* Title row */}
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
         <button
           onClick={togglePlay}
-          className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center flex-shrink-0 hover:from-primary-400 hover:to-primary-500 transition-all duration-200 shadow-lg shadow-primary-500/25"
+          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center flex-shrink-0 hover:from-primary-400 hover:to-primary-500 transition-all duration-200 shadow-lg shadow-primary-500/25"
         >
           {isPlaying ? (
-            <Pause className="w-5 h-5 text-white" fill="white" />
+            <Pause className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="white" />
           ) : (
-            <Play className="w-5 h-5 text-white ml-0.5" fill="white" />
+            <Play className="w-4 h-4 sm:w-5 sm:h-5 text-white ml-0.5" fill="white" />
           )}
         </button>
         <div className="flex-1 min-w-0">
-          <h6 className="text-white font-medium text-sm truncate">{title}</h6>
-          {subtitle && <p className="text-xs text-gray-400 truncate">{subtitle}</p>}
+          <h6 className="text-white font-medium text-xs sm:text-sm truncate">{title}</h6>
+          {subtitle && <p className="text-[10px] sm:text-xs text-gray-400 truncate">{subtitle}</p>}
         </div>
-        <div className="text-xs text-gray-500 flex-shrink-0 tabular-nums">
+        <div className="text-[10px] sm:text-xs text-gray-500 flex-shrink-0 tabular-nums">
           {formatTime(currentTime)} / {duration ? formatTime(duration) : '0:00'}
         </div>
       </div>
 
       {/* Waveform bars */}
       <div
-        className="flex items-end gap-[2px] h-12 cursor-pointer group"
+        className="flex items-end gap-[2px] h-10 sm:h-12 cursor-pointer group"
         onClick={handleBarClick}
       >
         {BAR_HEIGHTS.map((h, i) => {
