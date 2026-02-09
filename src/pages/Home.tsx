@@ -26,23 +26,23 @@ const PRICE_IDS = {
 const impacts = [
   {
     icon: <BookOpen className="w-6 h-6" />,
-    title: "Deep Biblical Understanding",
-    description: "Access seminary-level insights and scholarly perspectives"
+    title: "No Gatekeeper Required",
+    description: "Any group can run a seminary-quality Bible study without a trained leader"
   },
   {
     icon: <Users className="w-6 h-6" />,
-    title: "Community Formation",
-    description: "Build stronger spiritual bonds through shared learning"
+    title: "No Single Interpreter's Bias",
+    description: "24 theological perspectives ensure you see Scripture through multiple lenses, not one person's agenda"
   },
   {
     icon: <Heart className="w-6 h-6" />,
-    title: "Life Transformation",
-    description: "Experience personal growth through Jesus' teachings"
+    title: "Community, Not Isolation",
+    description: "Built for groups studying together in Discord, not individuals reading alone"
   },
   {
     icon: <ScrollText className="w-6 h-6" />,
-    title: "Accessible Education",
-    description: "Learn at your own pace with expert guidance"
+    title: "Depth Without Barriers",
+    description: "Original languages, historical context, and typological analysis accessible to everyone"
   }
 ];
 
@@ -52,11 +52,11 @@ const tiers = [
     price: "Free",
     priceId: PRICE_IDS.COMMUNITY,
     features: [
-      "Daily Bible study teachings from Jesus with scholarly analysis",
-      "Audio for verses, historical background, and scholarly insights",
+      "Weekly group Bible study — Life of Jesus theme (52 weeks)",
+      "Automated Daily Bread scripture with context and audio",
       "PastorBot conversations (5 queries per day, all formats)",
-      "Biblical perspectives from different theological traditions",
-      "Weekly Bible study you can do with other members of the Discord"
+      "Voice channel integration for immersive group study",
+      "Historical context, exegesis, and discussion questions"
     ]
   },
   {
@@ -64,11 +64,11 @@ const tiers = [
     price: "$2.99/mo",
     priceId: PRICE_IDS.DISCIPLESHIP,
     features: [
-      "Unlimited PastorBot conversations (public, private threads, discreet DMs)",
-      "Full access to Bible study tools and weekly studies",
-      "Multiple denominational perspectives and historical personas",
-      "Conversational memory for in-depth discussions",
-      "Complete privacy for sensitive spiritual questions"
+      "Premium access for you — one user, full power",
+      "All five Bible study themes (260+ curated passages)",
+      "Create Your Own Study — any passage, full scholarly treatment",
+      "24 theological personas from Augustine to N.T. Wright",
+      "Unlimited conversations with conversational memory"
     ]
   },
   {
@@ -76,10 +76,10 @@ const tiers = [
     price: "$12.99/mo",
     priceId: PRICE_IDS.MINISTRY,
     features: [
-      "SERVER-WIDE premium access for all members",
-      "All Discipleship tier features for everyone",
-      "Public, private, and discreet PastorBot access",
-      "Unlimited Bible studies and Pastor commands",
+      "Everything in Discipleship — unlocked for EVERY member",
+      "Your whole server gets premium, not just you",
+      "Server-wide persona and voice configuration",
+      "Unlimited Bible studies and pastoral conversations for all",
       "Ideal for churches and ministry organizations"
     ]
   }
@@ -136,27 +136,31 @@ export default function Home() {
             <img src="/images/pastorbot/pastorbot.png" alt="PastorBot" className="w-10 h-10 rounded-full" />
             <span className="font-bold text-3xl text-white">PastorBot</span>
           </div>
-          <button
-            onClick={() => redirectToDiscordAuth(true)}
-            className="button-gradient text-white px-4 py-2 rounded-lg text-sm font-semibold">
-            Add to Server
-          </button>
+          <div className="flex items-center gap-4">
+            <Link to="/blog" className="text-primary-500 hover:text-primary-400 text-sm font-semibold">
+              Blog
+            </Link>
+            <button
+              onClick={() => redirectToDiscordAuth(true)}
+              className="button-gradient text-white px-4 py-2 rounded-lg text-sm font-semibold">
+              Add to Server
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
       <div className="relative pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 items-center">
             <div>
               <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
-                <span>Seminary Level</span><br />
-                <span>Group Bible Studies</span>
-                <br />
-                <span className="gradient-text">For Discord</span>
+                <span>Bible Study So Good</span><br />
+                <span>Anyone Can Lead It.</span><br />
+                <span className="gradient-text">On Discord.</span>
               </h1>
               <p className="text-xl mb-6 leading-relaxed">
-                The Bible is more accessible than ever - yet truly understanding Scripture remains locked behind significant barriers. Until now.
+                Deep Bible study has always required a pastor or seminary-trained leader — locking millions out of Scripture's full depth. PastorBot delivers the scholarship, so any group can go deep on their own. No gatekeeper. No single interpreter's agenda. Just the Word.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
@@ -236,22 +240,20 @@ export default function Home() {
       {/* Features Grid - Reduce top padding */}
       <div className="pt-12 pb-0 gradient-section border-t border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-white mb-4">Biblical Knowledge at Your Fingertips</h2>
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold text-white mb-6">Your Weekly Bible Study, Handled</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI.
+              Type /study and PastorBot creates a complete, interactive Bible study for your group — five curated themes spanning the entire biblical narrative, or study any passage you choose.
             </p>
           </div>
 
           {/* Feature 1: Rich Bible Studies - Reduce bottom margin */}
           <div className="mb-8 flex flex-col lg:flex-row items-start gap-0 lg:gap-12">
             <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-4">Rich Bible Studies</h3>
+              <h3 className="text-3xl font-semibold text-white mb-4">One Command. A Full Bible Study.</h3>
 
               <p className="text-gray-400 leading-relaxed mb-6">
-                Experience richly detailed Bible studies with cultural and historical context.
-                Each study provides meaningful background to help you understand scripture
-                as it was understood in its time, complete with professional-quality audio.
+                Type /study, pick a theme — Life of Jesus, the Prophets, Wisdom Literature, Old Testament Foundations, or Letters to the Church — and PastorBot generates a complete study session in a dedicated thread. Historical backstory, scholarly exegesis, typological patterns across all of Scripture, discussion questions, a facilitator guide, and prayers. 52 weeks of curated passages per theme, all pre-generated and ready before your group sits down.
               </p>
 
               {/* Add heading for scripture passage */}
@@ -340,65 +342,55 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-4">Interactive Voice and Audio</h3>
+              <h3 className="text-3xl font-semibold text-white mb-4">It Doesn't Just Type. It Speaks.</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Experience a revolutionary approach to Bible study with PastorBot's dynamic audio capabilities.
-                PastorBot doesn't just respond with text - it actually joins your Discord voice channels and speaks
-                directly to your community, creating an immersive study experience.
+                PastorBot joins your Discord voice channel and speaks — Scripture read with reverence, historical context delivered with warmth, exegesis with scholarly precision, prayers with intimacy. Choose from five voice personas, and PastorBot adjusts its delivery for every type of content automatically.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">PastorBot joins voice channels and speaks like a real study participant</span>
+                  <span className="text-gray-400">Joins your voice channel and speaks directly to your group</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">High-quality audio for scripture, historical context, and theological insights</span>
+                  <span className="text-gray-400">Content-aware delivery — reverent for Scripture, analytical for exegesis, intimate for prayer</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Can lead Bible studies vocally if no qualified leader is available</span>
+                  <span className="text-gray-400">Five voice personas to match your community's preference</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Audio delivery of typology, exegesis, and interpretive frameworks</span>
+                  <span className="text-gray-400">Full audio for every section of every study</span>
                 </li>
               </ul>
-              <p className="text-gray-400 leading-relaxed">
-                Transform how your community engages with scripture through an immersive audio experience
-                that makes complex biblical concepts accessible to everyone, regardless of their
-                theological background.
-              </p>
             </div>
           </div>
 
           {/* Feature 2: Deep Theology & Exegesis - Reduce top padding */}
           <div className="mb-12 flex flex-col lg:flex-row items-start gap-0 lg:gap-12 border-t border-dark-border pt-8">
             <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-4">Deep Theology</h3>
+              <h3 className="text-3xl font-semibold text-white mb-4">Deeper Than Any Devotional You've Ever Read</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Uncover the profound meaning behind scripture with in-depth theological analysis.
-                PastorBot provides scholarly exegesis, connecting passages to broader biblical themes,
-                historical context, and diverse theological traditions, all voiced for easy listening.
+                Surface-level devotionals leave you with a nice feeling and nothing to think about by lunch. PastorBot goes where most study tools won't — original Hebrew and Greek word analysis, first-century cultural context, connections to passages written centuries apart, and honest engagement with difficult texts. This is the depth you'd get from a seminary classroom, delivered in your Discord server.
               </p>
 
-              {/* Re-add bullet points */}
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Rigorous academic interpretation of scripture</span>
+                  <span className="text-gray-400">Original-language analysis from Hebrew and Greek sources</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Original language insights from Hebrew and Greek</span>
+                  <span className="text-gray-400">First-century historical and cultural context</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Theological framework and doctrinal analysis</span>
+                  <span className="text-gray-400">Typological patterns connecting Old and New Testaments</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Textual criticism and interpretive methods</span>
+                  <span className="text-gray-400">Honest engagement with difficult and contested passages</span>
                 </li>
               </ul>
 
@@ -511,9 +503,9 @@ export default function Home() {
             </div>
             {/* Right column (explanation) */}
             <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-5">Scholarly Insights</h3>
+              <h3 className="text-3xl font-semibold text-white mb-5">Ask Anything. Get a Real Answer.</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Ask any question about Christianity and receive seminary-level insights with nuanced theological context. Get answers that reflect academic scholarship, not oversimplified explanations.
+                You've had questions about the Bible that Google couldn't answer well and you didn't want to ask your pastor. PastorBot gives you seminary-level answers with full context — in public, in a private thread, or in a completely confidential DM. No question is too basic. No question is too hard.
               </p>
 
               <div className="mb-6 border-l-4 border-primary-500/50 pl-4 py-2 italic">
@@ -521,26 +513,22 @@ export default function Home() {
                 <p className="text-primary-400 text-sm mt-2">— Pastor Michael, Community Church</p>
               </div>
 
-              <p className="text-gray-400 leading-relaxed mb-6">
-                Whether you're curious about biblical interpretation, church history, or theological concepts, PastorBot provides thoughtful, nuanced answers that respect both scholarship and faith.
-              </p>
-
               <ul className="space-y-4 mb-6">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Public channel interactions - just start with "Pastor"</span>
+                  <span className="text-gray-400">Say "Pastor" in any channel for a public answer</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Private thread discussions with the /pastor command</span>
+                  <span className="text-gray-400">/pastor opens a private thread only you can see</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Completely private DM conversations with /discreet</span>
+                  <span className="text-gray-400">/discreet opens a fully confidential DM conversation</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Ask sensitive questions with total confidentiality</span>
+                  <span className="text-gray-400">Crisis-aware — surfaces emergency resources when needed</span>
                 </li>
               </ul>
             </div>
@@ -554,26 +542,26 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <h3 className="text-3xl font-semibold text-white mb-4">Multiple Personas</h3>
+              <h3 className="text-3xl font-semibold text-white mb-4">Study Through Augustine's Eyes. Or C.S. Lewis's. Or 22 Others.</h3>
               <p className="text-gray-400 leading-relaxed mb-6">
-                Engage with biblical content through the lens of influential Christian thinkers throughout history. Learn from the perspectives of theological giants like C.S. Lewis and others who have shaped Christian thought.
+                Every pastor brings their own lens to Scripture. That's not a flaw — it's how theology works. But with a human leader, you only get one. PastorBot offers 24 theological perspectives — from the Church Fathers to modern scholars, across Catholic, Orthodox, Reformed, Anglican, and more. Your community picks the lens. Or switches between them.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Historical theological figures like C.S. Lewis</span>
+                  <span className="text-gray-400">Historical figures: Augustine, Aquinas, C.S. Lewis, Spurgeon</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Various denominational perspectives (Catholic, Anglican, Mennonite)</span>
+                  <span className="text-gray-400">Denominational perspectives across the entire Christian tradition</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Critical scholarship perspectives</span>
+                  <span className="text-gray-400">Critical and academic scholarship viewpoints</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-400">Understand different interpretations and theological approaches</span>
+                  <span className="text-gray-400">Compare how different traditions read the same passage</span>
                 </li>
               </ul>
             </div>
@@ -586,10 +574,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-white mb-4">
-              The Vision:<br /> A Biblical Knowledge Revolution
+              The Bible, Unlocked
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              By removing the bottleneck between people and biblical scholarship, we're enabling explosive growth in:
+              For centuries, the full depth of Scripture required a seminary-educated guide. PastorBot removes that barrier — permanently.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -613,9 +601,9 @@ export default function Home() {
             <div className="inline-block px-4 py-2 rounded-full bg-primary-500/10 text-primary-500 font-semibold text-sm mb-4">
               Pricing
             </div>
-            <h2 className="text-4xl font-bold text-white mb-4">Ready to Transform Your Community?</h2>
+            <h2 className="text-4xl font-bold text-white mb-4">Free to Start. Built to Go Deep.</h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-6">
-              Add PastorBot to your server for free and experience premium features through the <code>/subscription</code> command directly in Discord.
+              Add PastorBot to your server now and run your first Bible study today. Premium unlocks every theme, every persona, and unlimited conversations — upgrade anytime with <code>/subscription</code> in Discord.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -647,10 +635,14 @@ export default function Home() {
       <footer className="pt-8 pb-12 border-t border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
-            <p className="text-lg text-gray-400">Bringing scholarly biblical understanding to communities worldwide, one server at a time.</p>
+            <p className="text-lg text-gray-400">Seminary-depth Bible study for every community. No seminary required.</p>
           </div>
 
           <div className="flex flex-col md:flex-row justify-center items-center gap-x-4 gap-y-2">
+            <Link to="/blog" className="text-primary-500 hover:text-primary-400 text-sm">
+              Blog
+            </Link>
+            <span className="hidden md:inline text-gray-600">•</span>
             <Link to="/privacy-policy" className="text-primary-500 hover:text-primary-400 text-sm">
               Privacy Policy
             </Link>
