@@ -350,11 +350,6 @@ export default function Home() {
                 You've had questions about the Bible that Google couldn't answer well and you didn't want to ask your pastor. PastorBot gives you seminary-level answers with full context — in public, in a private thread, or in a completely confidential DM. No question is too basic. No question is too hard.
               </p>
 
-              <div className="mb-6 border-l-4 border-primary-500/50 pl-4 py-2 italic">
-                <p className="text-gray-300 text-sm">"PastorBot helped our Bible study group understand difficult passages by providing historical context and theological perspectives we would never have discovered on our own."</p>
-                <p className="text-primary-400 text-sm mt-2">— Pastor Michael, Community Church</p>
-              </div>
-
               <ul className="space-y-4 mb-6">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
