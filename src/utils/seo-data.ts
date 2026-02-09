@@ -5,8 +5,8 @@
 
 export const SEO_CONFIG = {
   titleTemplate: '%s | PastorBot',
-  defaultTitle: 'The AI-Powered Biblical Assistant for Discord',
-  description: 'PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI. Ask any question about Christianity and receive scholarly insights.',
+  defaultTitle: 'PastorBot — AI Bible Study Bot for Discord | Daily Verses, Voice & Pastor Chat',
+  description: 'Add PastorBot to your Discord server for daily lectionary Bible studies, voice-guided lessons, AI pastoral conversations, and weekly group studies. Free to start.',
   siteUrl: 'https://pastorbot.app', // Explicitly using non-www format
   ogImage: 'https://pastorbot.app/images/pastorbot/personas2.png', // Use absolute URL for personas2 image
   twitter: {

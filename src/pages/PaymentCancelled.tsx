@@ -1,4 +1,5 @@
 import { Bot, ArrowRight, RotateCcw } from 'lucide-react';
+import SEO from '../utils/SEO';
 
 export default function PaymentCancelled() {
   const returnToDiscord = () => {
@@ -11,6 +12,13 @@ export default function PaymentCancelled() {
   };
 
   return (
+    <>
+    <SEO
+      title="Payment Cancelled"
+      description="Your PastorBot payment was cancelled."
+      noindex={true}
+      path="/payment-cancelled"
+    />
     <div className="min-h-screen flex items-center justify-center bg-dark">
       <div className="max-w-md w-full bg-dark-card border border-dark-border shadow-lg rounded-lg p-8 text-center">
         <div className="flex justify-center mb-6">
@@ -37,5 +45,6 @@ export default function PaymentCancelled() {
         </div>
       </div>
     </div>
+    </>
   );
 }

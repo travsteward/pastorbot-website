@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 import { Bot, ArrowRight } from 'lucide-react';
+import SEO from '../utils/SEO';
 
 export default function PaymentSuccess() {
   const [searchParams] = useSearchParams();
@@ -13,6 +14,13 @@ export default function PaymentSuccess() {
   };
 
   return (
+    <>
+    <SEO
+      title="Payment Success"
+      description="Your PastorBot payment was successful."
+      noindex={true}
+      path="/payment-success"
+    />
     <div className="min-h-screen flex items-center justify-center bg-dark">
       <div className="max-w-md w-full bg-dark-card border border-dark-border shadow-lg rounded-lg p-8 text-center">
         <div className="flex justify-center mb-6">
@@ -33,5 +41,6 @@ export default function PaymentSuccess() {
         </button>
       </div>
     </div>
+    </>
   );
 }

@@ -109,7 +109,9 @@ export default function Home() {
   }, [searchParams]);
 
   const handleGetStarted = () => {
-    // For all tiers, redirect to Discord bot installation
+    if (typeof gtag === 'function') {
+      gtag('event', 'add_to_server', { event_category: 'conversion' });
+    }
     redirectToDiscordAuth(true);
   };
 

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { redirectToDiscordAuth } from '../utils/discord';
 import { Bot, ArrowRight } from 'lucide-react';
+import SEO from '../utils/SEO';
 
 export default function StripeSuccess() {
   const [searchParams] = useSearchParams();
@@ -22,6 +23,13 @@ export default function StripeSuccess() {
   }, [searchParams, navigate]);
 
   return (
+    <>
+    <SEO
+      title="Payment Successful"
+      description="Your PastorBot payment was successful."
+      noindex={true}
+      path="/success"
+    />
     <div className="min-h-screen flex items-center justify-center bg-dark">
       <div className="max-w-md w-full bg-dark-card border border-dark-border shadow-lg rounded-lg p-8 text-center">
         <div className="flex justify-center mb-6">
@@ -39,5 +47,6 @@ export default function StripeSuccess() {
         </button>
       </div>
     </div>
+    </>
   );
 }

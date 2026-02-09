@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pastorbot.app</loc>
-    <lastmod>2023-11-20</lastmod>
+    <loc>https://pastorbot.app/</loc>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <!-- Don't include pages that are disallowed in robots.txt -->
-  <!-- Don't include payment pages as they're in robots.txt disallow -->
-  <!-- Add a 404 page with low priority -->
-  <url>
-    <loc>https://pastorbot.app/404</loc>
-    <lastmod>2023-11-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.1</priority>
   </url>
 </urlset>

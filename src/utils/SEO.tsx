@@ -13,8 +13,8 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = 'PastorBot - Biblical Scholarship for Everyone',
-  description = 'PastorBot brings seminary-level biblical understanding directly to your Discord community through the power of AI. Ask any question about Christianity and receive scholarly insights.',
+  title = 'PastorBot — AI Bible Study Bot for Discord | Daily Verses, Voice & Pastor Chat',
+  description = 'Add PastorBot to your Discord server for daily lectionary Bible studies, voice-guided lessons, AI pastoral conversations, and weekly group studies. Free to start.',
   canonical,
   path,
   image = '/images/pastorbot/pastorbot.png',
@@ -22,7 +22,7 @@ const SEO = ({
   schema,
   noindex = false
 }: SEOProps) => {
-  const fullTitle = title === 'PastorBot - Biblical Scholarship for Everyone'
+  const fullTitle = title === 'PastorBot — AI Bible Study Bot for Discord | Daily Verses, Voice & Pastor Chat'
     ? title
     : `${title} | PastorBot`;
 

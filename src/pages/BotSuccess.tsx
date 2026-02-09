@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bot, Book, MessageSquare, ExternalLink } from 'lucide-react';
+import SEO from '../utils/SEO';
 
 export default function BotSuccess() {
   const navigate = useNavigate();
@@ -13,6 +14,13 @@ export default function BotSuccess() {
   }, [navigate]);
 
   return (
+    <>
+    <SEO
+      title="Bot Added Successfully"
+      description="PastorBot has been added to your Discord server."
+      noindex={true}
+      path="/bot-success"
+    />
     <div className="min-h-screen flex items-center justify-center bg-dark p-6">
       <div className="max-w-2xl w-full bg-dark-card border border-dark-border shadow-lg rounded-lg p-8">
         <div className="flex justify-center mb-6">
@@ -61,5 +69,6 @@ export default function BotSuccess() {
         </div>
       </div>
     </div>
+    </>
   );
 }
