@@ -149,7 +149,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <div className="relative pt-16 min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
+      <div className="relative pt-16 min-h-[480px] sm:min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
           <img
@@ -160,22 +160,24 @@ export default function Home() {
           {/* Gradient overlays for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B14] via-[#0B0B14]/80 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B14] via-transparent to-[#0B0B14]/40"></div>
+          {/* Extra mobile overlay for readability over image */}
+          <div className="absolute inset-0 bg-[#0B0B14]/40 sm:bg-transparent"></div>
         </div>
         {/* Text content */}
-        <div className="relative w-full px-4 sm:px-6 lg:px-16 xl:px-24 py-20">
+        <div className="relative w-full px-4 sm:px-6 lg:px-16 xl:px-24 py-12 sm:py-20">
           <div className="max-w-2xl">
-            <h1 className="text-5xl sm:text-6xl lg:text-6xl font-bold mb-6 tracking-tight text-white">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-tight text-white">
               <span>Bible Study So Good</span><br />
               <span>Anyone Can Lead It.</span><br />
               <span className="gradient-text">On Discord.</span>
             </h1>
-            <p className="text-xl mb-6 leading-relaxed text-gray-300">
+            <p className="text-base sm:text-xl mb-6 leading-relaxed text-gray-300">
               Deep Bible study has always required a pastor or seminary-trained leader — locking millions out of Scripture's full depth. PastorBot delivers the scholarship, so any group can go deep on their own. No gatekeeper. No single interpreter's agenda. Just the Word.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => handleGetStarted()}
-                className="button-gradient text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 hover:shadow-glow"
+                className="button-gradient text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-base sm:text-lg flex items-center justify-center gap-2 hover:shadow-glow"
               >
                 Add to Discord
                 <ArrowRight className="w-5 h-5" />
@@ -184,7 +186,7 @@ export default function Home() {
                 href="https://discord.gg/dkJ6Y9Xjs8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-dark-card/80 backdrop-blur-sm text-white border border-dark-border px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center"
+                className="bg-dark-card/80 backdrop-blur-sm text-white border border-dark-border px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold text-base sm:text-lg hover:bg-opacity-80 transition-all duration-300 flex items-center justify-center"
               >
                 Join Support Server
               </a>
